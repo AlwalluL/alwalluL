@@ -20,22 +20,24 @@
                 extend: {
                     colors: {
                         cream: {
-                            DEFAULT: '#F4EFE6',
-                            dark: '#E8E1D5',
-                            light: '#FAF7F2',
+                            DEFAULT: '#F7F1DE',
+                            dark: '#EAE3CE',
+                            light: '#FAF7EE',
+                        },
+                        sage: {
+                            DEFAULT: '#B0BA99',
+                            muted: '#939D7D',
+                            light: '#D3DAC2',
+                        },
+                        brown: {
+                            DEFAULT: '#4E220F',
+                            muted: '#6E341B',
+                            light: '#8C4D30',
                         },
                         charcoal: {
                             DEFAULT: '#1E232A',
                             muted: '#4A525D',
                             light: '#828C98',
-                        },
-                        burgundy: {
-                            DEFAULT: '#6B3A3E',
-                            light: '#8C5257',
-                        },
-                        softblue: {
-                            DEFAULT: '#88A3B7',
-                            light: '#C3D2DE',
                         }
                     },
                     fontFamily: {
@@ -49,14 +51,12 @@
 
     <style>
         body {
-            background-color: #F4EFE6;
+            background-color: #FAF7EE;
             color: #1E232A;
             font-family: 'Plus Jakarta Sans', sans-serif;
             overflow-x: hidden;
-            /* Texture Subtle Pattern */
-            background-image: radial-gradient(#1E232A 0.5px, transparent 0.5px);
-            background-size: 24px 24px;
-            background-color: #F4EFE6;
+            background-image: radial-gradient(#4E220F 0.35px, transparent 0.35px);
+            background-size: 28px 28px;
             background-position: 0 0;
             background-attachment: fixed;
             opacity: 0.98;
@@ -66,18 +66,18 @@
             position: fixed;
             top: 0; left: 0; width: 100vw; height: 100vh;
             content: "";
-            opacity: 0.03;
+            opacity: 0.025;
             pointer-events: none;
             z-index: 1;
             background: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
         }
 
         .glass-panel {
-            background: rgba(250, 247, 242, 0.75);
+            background: rgba(247, 241, 222, 0.75);
             backdrop-filter: blur(16px);
             -webkit-backdrop-filter: blur(16px);
-            border: 1px solid rgba(232, 225, 213, 0.8);
-            box-shadow: 0 10px 30px -10px rgba(30, 35, 42, 0.05);
+            border: 1px solid rgba(176, 186, 153, 0.3);
+            box-shadow: 0 10px 30px -10px rgba(78, 34, 15, 0.04);
         }
 
         .glass-panel-hover {
@@ -86,9 +86,9 @@
 
         .glass-panel-hover:hover {
             transform: translateY(-3px);
-            background: rgba(255, 255, 255, 0.9);
-            border-color: rgba(136, 163, 183, 0.5);
-            box-shadow: 0 16px 36px -12px rgba(30, 35, 42, 0.08);
+            background: rgba(250, 247, 238, 0.95);
+            border-color: rgba(176, 186, 153, 0.6);
+            box-shadow: 0 16px 36px -12px rgba(78, 34, 15, 0.08);
         }
 
         .toast-notification {
@@ -102,43 +102,38 @@
             opacity: 1;
         }
 
-        /* Subtle floating animations */
         @keyframes float-gentle {
             0%, 100% { transform: translateY(0px) rotate(0deg); }
-            50% { transform: translateY(-8px) rotate(1deg); }
+            50% { transform: translateY(-6px) rotate(0.5deg); }
         }
         .animate-float {
             animation: float-gentle 8s ease-in-out infinite;
         }
     </style>
 </head>
-<body class="min-h-screen flex flex-col items-center justify-between p-4 md:p-10 relative selection:bg-burgundy selection:text-white">
+<body class="min-h-screen flex flex-col items-center justify-between p-4 md:p-10 relative selection:bg-brown selection:text-cream">
 
     <div class="noise-overlay"></div>
 
-    <!-- Decorative Soft Background Blobs & Shapes -->
-    <div class="fixed top-12 left-10 w-96 h-96 bg-softblue-light/20 rounded-full blur-3xl pointer-events-none -z-10 animate-float"></div>
-    <div class="fixed bottom-20 right-10 w-80 h-80 bg-cream-dark/60 rounded-full blur-3xl pointer-events-none -z-10"></div>
-    
-    <!-- Subtle Frame Lines -->
-    <div class="fixed top-4 left-4 right-4 bottom-4 border border-charcoal/5 pointer-events-none -z-10 rounded-3xl hidden md:block"></div>
+    <!-- Soft Ambient Color Blobs -->
+    <div class="fixed top-12 left-10 w-96 h-96 bg-sage-light/20 rounded-full blur-3xl pointer-events-none -z-10 animate-float"></div>
+    <div class="fixed bottom-20 right-10 w-80 h-80 bg-cream-dark/50 rounded-full blur-3xl pointer-events-none -z-10"></div>
 
     <main class="w-full max-w-lg mx-auto z-10 flex flex-col items-center gap-7 my-auto pt-4 pb-12">
 
         <!-- HERO / PROFILE SECTION -->
         <header class="flex flex-col items-center text-center w-full glass-panel rounded-3xl p-8 relative overflow-hidden">
             
-            <!-- Tiny Decorative Japanese/French Minimal Cross Accent -->
-            <div class="absolute top-4 left-5 text-charcoal/20 text-xs font-serif tracking-widest">✦ 01</div>
-            <div class="absolute top-4 right-5 text-charcoal/20 text-xs font-serif">FR / JP</div>
+            <!-- Minimal Cross Accents & Subtle Text -->
+            <div class="absolute top-4 left-5 text-brown/25 text-[11px] font-serif tracking-widest">✦ 01</div>
+            <div class="absolute top-4 right-5 text-brown/25 text-[11px] font-serif tracking-widest">FR / JP</div>
 
             <!-- Profile Picture Container -->
             <div class="relative mb-5 mt-2">
-                <!-- Subtle Decorative Rings -->
-                <div class="absolute -inset-2 rounded-full border border-charcoal/10 scale-105"></div>
-                <div class="absolute -inset-4 rounded-full border border-dashed border-charcoal/10 animate-float"></div>
+                <div class="absolute -inset-2 rounded-full border border-sage/30 scale-105"></div>
+                <div class="absolute -inset-4 rounded-full border border-dashed border-brown/10 animate-float"></div>
 
-                <div class="relative w-28 h-28 md:w-32 md:h-32 rounded-full p-1.5 bg-cream-light shadow-md overflow-hidden flex items-center justify-center border border-cream-dark">
+                <div class="relative w-28 h-28 md:w-32 md:h-32 rounded-full p-1.5 bg-cream shadow-md overflow-hidden flex items-center justify-center border border-cream-dark">
                     <img 
                         src="profile.jpg.jpg" 
                         alt="AlwalluL Avatar" 
@@ -147,14 +142,14 @@
                     >
                 </div>
 
-                <div class="absolute bottom-1 right-1 bg-cream-light p-1 rounded-full border border-cream-dark shadow-sm" title="Active">
-                    <span class="block w-2.5 h-2.5 bg-emerald-600 rounded-full"></span>
+                <div class="absolute bottom-1 right-1 bg-cream p-1 rounded-full border border-sage/40 shadow-sm" title="Active">
+                    <span class="block w-2.5 h-2.5 bg-sage-muted rounded-full"></span>
                 </div>
             </div>
 
             <!-- Profile Info -->
             <div class="flex items-center gap-2 mb-1">
-                <span class="text-xs font-serif italic text-burgundy tracking-widest uppercase">Portfolio & Links</span>
+                <span class="text-[11px] font-serif italic text-brown tracking-widest uppercase">PORTFOLIO & LINKS</span>
             </div>
             
             <h1 class="text-3xl md:text-4xl font-serif font-semibold tracking-tight text-charcoal">
@@ -165,48 +160,55 @@
                 Aesthetic casual space for music, gaming & minimal design. Welcome to my personal hub.
             </p>
 
-            <!-- Quick Social Bar -->
-            <div class="flex items-center justify-center gap-3 w-full mt-6 pt-5 border-t border-charcoal/10">
+            <!-- 4 Consistent Circular Social Buttons -->
+            <div class="flex items-center justify-center gap-3 w-full mt-6 pt-5 border-t border-sage/20">
+                <!-- 1. Instagram -->
                 <a href="https://instagram.com/_alwallul29j" target="_blank" rel="noopener noreferrer" 
-                   class="w-10 h-10 glass-panel rounded-full text-charcoal hover:text-burgundy hover:border-burgundy/30 flex items-center justify-center transition-all shadow-sm" title="Instagram">
+                   class="w-10 h-10 rounded-full bg-cream border border-sage/30 text-brown hover:bg-brown hover:text-cream hover:border-brown flex items-center justify-center transition-all duration-300 shadow-sm" title="Instagram">
                     <i data-lucide="instagram" class="w-4 h-4"></i>
                 </a>
+
+                <!-- 2. TikTok -->
                 <a href="https://tiktok.com/@jayeon290" target="_blank" rel="noopener noreferrer" 
-                   class="w-10 h-10 glass-panel rounded-full text-charcoal hover:text-burgundy hover:border-burgundy/30 flex items-center justify-center transition-all shadow-sm" title="TikTok">
+                   class="w-10 h-10 rounded-full bg-cream border border-sage/30 text-brown hover:bg-brown hover:text-cream hover:border-brown flex items-center justify-center transition-all duration-300 shadow-sm" title="TikTok">
                     <i data-lucide="music-2" class="w-4 h-4"></i>
                 </a>
+
+                <!-- 3. Apple Music -->
                 <a href="https://music.apple.com/id/playlist/pl.u-yZyVEyZtZLo4y49" target="_blank" rel="noopener noreferrer" 
-                   class="w-10 h-10 glass-panel rounded-full text-charcoal hover:text-burgundy hover:border-burgundy/30 flex items-center justify-center transition-all shadow-sm" title="Apple Music">
+                   class="w-10 h-10 rounded-full bg-cream border border-sage/30 text-brown hover:bg-brown hover:text-cream hover:border-brown flex items-center justify-center transition-all duration-300 shadow-sm" title="Apple Music">
                     <i data-lucide="disc" class="w-4 h-4"></i>
                 </a>
+
+                <!-- 4. Gaming Controller (Mobile Legends) -->
                 <button onclick="openMlModal()" 
-                   class="w-10 h-10 glass-panel rounded-full text-charcoal hover:text-burgundy hover:border-burgundy/30 flex items-center justify-center transition-all shadow-sm" title="Mobile Legends ID">
+                   class="w-10 h-10 rounded-full bg-cream border border-sage/30 text-brown hover:bg-brown hover:text-cream hover:border-brown flex items-center justify-center transition-all duration-300 shadow-sm" title="Mobile Legends ID">
                     <i data-lucide="gamepad-2" class="w-4 h-4"></i>
                 </button>
             </div>
         </header>
 
-        <!-- LINKS SECTION -->
+        <!-- DIRECT LINKS SECTION -->
         <section class="w-full flex flex-col gap-3.5">
             
             <div class="flex items-center justify-between px-2">
-                <span class="text-xs font-serif italic text-charcoal-muted uppercase tracking-widest">✦ Direct Links</span>
-                <div class="h-[1px] flex-1 bg-charcoal/10 ml-4"></div>
+                <span class="text-[11px] font-serif italic text-brown uppercase tracking-widest">✦ DIRECT LINKS</span>
+                <div class="h-[1px] flex-1 bg-sage/30 ml-4"></div>
             </div>
 
             <!-- Link Item 1: Instagram -->
             <a href="https://instagram.com/_alwallul29j" target="_blank" rel="noopener noreferrer" 
                class="glass-panel glass-panel-hover rounded-2xl p-4 flex items-center justify-between group cursor-pointer">
                 <div class="flex items-center gap-4">
-                    <div class="w-11 h-11 rounded-xl bg-cream-dark/60 text-charcoal flex items-center justify-center border border-charcoal/5 group-hover:bg-burgundy group-hover:text-white transition duration-300">
+                    <div class="w-11 h-11 rounded-xl bg-cream-dark/60 text-brown flex items-center justify-center border border-sage/20 group-hover:bg-brown group-hover:text-cream transition duration-300">
                         <i data-lucide="instagram" class="w-5 h-5"></i>
                     </div>
                     <div class="text-left">
-                        <div class="text-[10px] font-semibold tracking-widest uppercase text-burgundy">Social Media</div>
+                        <div class="text-[10px] font-semibold tracking-widest uppercase text-brown">Social Media</div>
                         <div class="text-sm font-semibold text-charcoal">Instagram <span class="text-xs text-charcoal-muted font-normal">(@_alwallul29j)</span></div>
                     </div>
                 </div>
-                <div class="w-7 h-7 rounded-full text-charcoal-light group-hover:text-charcoal transition flex items-center justify-center">
+                <div class="w-7 h-7 rounded-full text-charcoal-light group-hover:text-brown transition flex items-center justify-center">
                     <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
                 </div>
             </a>
@@ -215,15 +217,15 @@
             <a href="https://tiktok.com/@jayeon290" target="_blank" rel="noopener noreferrer" 
                class="glass-panel glass-panel-hover rounded-2xl p-4 flex items-center justify-between group cursor-pointer">
                 <div class="flex items-center gap-4">
-                    <div class="w-11 h-11 rounded-xl bg-cream-dark/60 text-charcoal flex items-center justify-center border border-charcoal/5 group-hover:bg-burgundy group-hover:text-white transition duration-300">
+                    <div class="w-11 h-11 rounded-xl bg-cream-dark/60 text-brown flex items-center justify-center border border-sage/20 group-hover:bg-brown group-hover:text-cream transition duration-300">
                         <i data-lucide="music-2" class="w-5 h-5"></i>
                     </div>
                     <div class="text-left">
-                        <div class="text-[10px] font-semibold tracking-widest uppercase text-burgundy">Shorts & Clips</div>
+                        <div class="text-[10px] font-semibold tracking-widest uppercase text-brown">Shorts & Clips</div>
                         <div class="text-sm font-semibold text-charcoal">TikTok <span class="text-xs text-charcoal-muted font-normal">(@jayeon290)</span></div>
                     </div>
                 </div>
-                <div class="w-7 h-7 rounded-full text-charcoal-light group-hover:text-charcoal transition flex items-center justify-center">
+                <div class="w-7 h-7 rounded-full text-charcoal-light group-hover:text-brown transition flex items-center justify-center">
                     <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
                 </div>
             </a>
@@ -232,56 +234,56 @@
             <a href="https://music.apple.com/id/playlist/pl.u-yZyVEyZtZLo4y49" target="_blank" rel="noopener noreferrer" 
                class="glass-panel glass-panel-hover rounded-2xl p-4 flex items-center justify-between group cursor-pointer">
                 <div class="flex items-center gap-4">
-                    <div class="w-11 h-11 rounded-xl bg-cream-dark/60 text-charcoal flex items-center justify-center border border-charcoal/5 group-hover:bg-burgundy group-hover:text-white transition duration-300">
+                    <div class="w-11 h-11 rounded-xl bg-cream-dark/60 text-brown flex items-center justify-center border border-sage/20 group-hover:bg-brown group-hover:text-cream transition duration-300">
                         <i data-lucide="disc" class="w-5 h-5"></i>
                     </div>
                     <div class="text-left">
-                        <div class="text-[10px] font-semibold tracking-widest uppercase text-burgundy">Audio Space</div>
+                        <div class="text-[10px] font-semibold tracking-widest uppercase text-brown">Audio Space</div>
                         <div class="text-sm font-semibold text-charcoal">Apple Music Playlist 🎵</div>
                     </div>
                 </div>
-                <div class="w-7 h-7 rounded-full text-charcoal-light group-hover:text-charcoal transition flex items-center justify-center">
+                <div class="w-7 h-7 rounded-full text-charcoal-light group-hover:text-brown transition flex items-center justify-center">
                     <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
                 </div>
             </a>
 
             <!-- MOBILE LEGENDS GAMING CARD -->
-            <div class="glass-panel rounded-2xl p-5 border border-cream-dark/80 relative overflow-hidden my-1">
+            <div class="glass-panel rounded-2xl p-5 border border-sage/30 relative overflow-hidden my-1">
                 <div class="flex items-center justify-between mb-4">
                     <div class="flex items-center gap-3">
-                        <div class="w-10 h-10 rounded-xl bg-charcoal text-cream-light flex items-center justify-center shadow-sm">
+                        <div class="w-10 h-10 rounded-xl bg-brown text-cream flex items-center justify-center shadow-sm">
                             <i data-lucide="gamepad-2" class="w-5 h-5"></i>
                         </div>
                         <div>
-                            <span class="text-[10px] font-serif uppercase tracking-widest text-burgundy block">Mobile Legends</span>
+                            <span class="text-[10px] font-serif uppercase tracking-widest text-brown block">Mobile Legends</span>
                             <h3 class="text-sm font-bold text-charcoal">Jayeon</h3>
                         </div>
                     </div>
-                    <span class="text-xs font-mono font-semibold text-charcoal-muted bg-cream-dark/50 px-3 py-1 rounded-md border border-charcoal/5">
+                    <span class="text-xs font-mono font-semibold text-charcoal-muted bg-cream-dark/50 px-3 py-1 rounded-md border border-sage/20">
                         ID: 203652127
                     </span>
                 </div>
                 
                 <button 
                     onclick="copyMlId('203652127')" 
-                    class="w-full py-2.5 px-4 bg-charcoal hover:bg-burgundy text-cream-light font-medium text-xs rounded-xl flex items-center justify-center gap-2 transition duration-300 shadow-sm active:scale-98"
+                    class="w-full py-2.5 px-4 bg-brown hover:bg-brown-muted text-cream font-medium text-xs rounded-xl flex items-center justify-center gap-2 transition duration-300 shadow-sm active:scale-98"
                 >
                     <i data-lucide="copy" class="w-3.5 h-3.5"></i>
                     <span>Copy MLBB ID</span>
                 </button>
             </div>
 
-            <!-- APPLE MUSIC FEATURED SECTION -->
+            <!-- APPLE MUSIC FEATURED EMBED -->
             <div class="glass-panel rounded-2xl p-5 flex flex-col gap-3.5 relative overflow-hidden">
                 <div class="flex items-center justify-between">
                     <div class="flex items-center gap-2">
-                        <span class="w-2 h-2 rounded-full bg-burgundy animate-pulse"></span>
+                        <span class="w-2 h-2 rounded-full bg-sage-muted animate-pulse"></span>
                         <span class="text-xs font-serif italic text-charcoal tracking-wide">Currently Playing / Playlist</span>
                     </div>
-                    <span class="text-[10px] font-semibold text-burgundy bg-burgundy/10 px-2.5 py-0.5 rounded-full">Apple Music</span>
+                    <span class="text-[10px] font-semibold text-brown bg-sage/20 px-2.5 py-0.5 rounded-full border border-sage/30">Apple Music</span>
                 </div>
 
-                <div class="rounded-xl overflow-hidden border border-charcoal/10 bg-black/5">
+                <div class="rounded-xl overflow-hidden border border-sage/20 bg-black/5">
                     <iframe allow="autoplay *; encrypted-media *; fullscreen *; clipboard-write" frameborder="0" height="175" style="width:100%;max-width:660px;overflow:hidden;border-radius:10px;" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-storage-access-by-user-activation allow-top-navigation-by-user-activation" src="https://embed.music.apple.com/id/playlist/pl.u-yZyVEyZtZLo4y49"></iframe>
                 </div>
             </div>
@@ -305,15 +307,15 @@
     </footer>
 
     <!-- TOAST NOTIFICATION -->
-    <div id="toast" class="toast-notification fixed bottom-6 left-1/2 -translate-x-1/2 z-50 glass-panel bg-charcoal/95 text-cream-light px-5 py-3 rounded-full shadow-xl flex items-center gap-2.5 text-xs font-medium border border-white/10">
-        <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-400"></i>
+    <div id="toast" class="toast-notification fixed bottom-6 left-1/2 -translate-x-1/2 z-50 glass-panel bg-brown text-cream px-5 py-3 rounded-full shadow-xl flex items-center gap-2.5 text-xs font-medium border border-sage/20">
+        <i data-lucide="check-circle-2" class="w-4 h-4 text-sage"></i>
         <span id="toast-message">Mobile Legends ID copied successfully!</span>
     </div>
 
     <!-- MOBILE LEGENDS MODAL -->
     <div id="ml-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-charcoal/40 backdrop-blur-sm opacity-0 pointer-events-none transition duration-300">
-        <div class="glass-panel bg-cream-light max-w-xs w-full rounded-3xl p-6 text-center border border-white flex flex-col items-center gap-4 shadow-2xl transform scale-95 transition duration-300" id="ml-modal-content">
-            <div class="w-14 h-14 rounded-2xl bg-charcoal text-cream-light flex items-center justify-center">
+        <div class="glass-panel bg-cream-light max-w-xs w-full rounded-3xl p-6 text-center border border-sage/30 flex flex-col items-center gap-4 shadow-2xl transform scale-95 transition duration-300" id="ml-modal-content">
+            <div class="w-14 h-14 rounded-2xl bg-brown text-cream flex items-center justify-center">
                 <i data-lucide="gamepad-2" class="w-7 h-7"></i>
             </div>
             <div>
@@ -321,7 +323,7 @@
                 <p class="text-xs text-charcoal-muted mt-0.5">Add me to play together!</p>
             </div>
             
-            <div class="w-full bg-cream-dark/40 p-3.5 rounded-xl border border-charcoal/5 text-left">
+            <div class="w-full bg-cream-dark/40 p-3.5 rounded-xl border border-sage/20 text-left">
                 <div class="text-[10px] text-charcoal-light uppercase font-semibold tracking-wider">Username</div>
                 <div class="text-sm font-bold text-charcoal mb-2">Jayeon</div>
                 <div class="text-[10px] text-charcoal-light uppercase font-semibold tracking-wider">User ID</div>
@@ -329,7 +331,7 @@
             </div>
 
             <div class="flex gap-2 w-full">
-                <button onclick="copyMlId('203652127')" class="flex-1 py-2.5 bg-charcoal hover:bg-burgundy text-cream-light font-medium text-xs rounded-xl flex items-center justify-center gap-1.5 transition">
+                <button onclick="copyMlId('203652127')" class="flex-1 py-2.5 bg-brown hover:bg-brown-muted text-cream font-medium text-xs rounded-xl flex items-center justify-center gap-1.5 transition">
                     <i data-lucide="copy" class="w-3.5 h-3.5"></i> Copy ID
                 </button>
                 <button onclick="closeMlModal()" class="px-4 py-2.5 bg-cream-dark hover:bg-cream-dark/80 text-charcoal font-medium text-xs rounded-xl transition">
