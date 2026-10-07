@@ -39,21 +39,11 @@
                     animation: {
                         'float-slow': 'float 6s ease-in-out infinite',
                         'float-delayed': 'float 8s ease-in-out infinite 2s',
-                        'pulse-subtle': 'pulseSubtle 3s infinite ease-in-out',
-                        'bounce-light': 'bounceLight 2s infinite',
                     },
                     keyframes: {
                         float: {
                             '0%, 100%': { transform: 'translateY(0px) rotate(0deg)' },
                             '50%': { transform: 'translateY(-12px) rotate(3deg)' },
-                        },
-                        pulseSubtle: {
-                            '0%, 100%': { opacity: '0.8', transform: 'scale(1)' },
-                            '50%': { opacity: '1', transform: 'scale(1.03)' },
-                        },
-                        bounceLight: {
-                            '0%, 100%': { transform: 'translateY(0)' },
-                            '50%': { transform: 'translateY(-4px)' },
                         }
                     }
                 }
@@ -98,9 +88,6 @@
             background: #AEC4D4;
             border-radius: 99px;
         }
-        ::-webkit-scrollbar-thumb:hover {
-            background: #7A9CB5;
-        }
 
         .blob {
             position: absolute;
@@ -136,11 +123,12 @@
                 <div class="absolute -inset-1.5 bg-gradient-to-tr from-softblue to-cream-dark rounded-full blur-md opacity-70 group-hover:opacity-100 transition duration-500"></div>
                 
                 <div class="relative w-28 h-28 md:w-32 md:h-32 rounded-full p-1 bg-white shadow-xl overflow-hidden flex items-center justify-center">
+                    <!-- URL Foto Profil Furina Langsung -->
                     <img 
-                        src="https://i.imgur.com/PQuombg.jpg" 
-                        alt="AlwalluL Avatar" 
+                        src="https://raw.githubusercontent.com/AlwalluL/alwalluL/main/profile.jpg" 
+                        alt="Furina AlwalluL" 
                         class="w-full h-full object-cover rounded-full transform group-hover:scale-105 transition duration-500"
-                        onerror="this.onerror=null; this.src='https://placehold.co/150x150/AEC4D4/2C3539?text=AlwalluL';"
+                        onerror="this.src='https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=300&q=80';"
                     >
                 </div>
 
