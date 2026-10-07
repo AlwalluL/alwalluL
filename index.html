@@ -3,12 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AlwalluL | Links & Portfolio</title>
+    <title>AlwalluL — Personal Space</title>
+    
+    <!-- Tailwind CSS & Lucide Icons -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <!-- Fonts: Cormorant Garamond (Serif) & Plus Jakarta Sans (Sans-serif) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
     
     <script>
         tailwind.config = {
@@ -16,35 +20,27 @@
                 extend: {
                     colors: {
                         cream: {
-                            DEFAULT: '#F5EFE1',
-                            dark: '#EAE1CE',
-                            light: '#FAF7F0',
-                        },
-                        softblue: {
-                            DEFAULT: '#AEC4D4',
-                            hover: '#98B3C7',
-                            dark: '#7A9CB5',
-                            light: '#D3E1EB',
+                            DEFAULT: '#F4EFE6',
+                            dark: '#E8E1D5',
+                            light: '#FAF7F2',
                         },
                         charcoal: {
-                            DEFAULT: '#2C3539',
-                            muted: '#5A656B',
-                            light: '#8A979E',
+                            DEFAULT: '#1E232A',
+                            muted: '#4A525D',
+                            light: '#828C98',
+                        },
+                        burgundy: {
+                            DEFAULT: '#6B3A3E',
+                            light: '#8C5257',
+                        },
+                        softblue: {
+                            DEFAULT: '#88A3B7',
+                            light: '#C3D2DE',
                         }
                     },
                     fontFamily: {
+                        serif: ['Cormorant Garamond', 'serif'],
                         sans: ['Plus Jakarta Sans', 'sans-serif'],
-                        heading: ['Quicksand', 'sans-serif'],
-                    },
-                    animation: {
-                        'float-slow': 'float 6s ease-in-out infinite',
-                        'float-delayed': 'float 8s ease-in-out infinite 2s',
-                    },
-                    keyframes: {
-                        float: {
-                            '0%, 100%': { transform: 'translateY(0px) rotate(0deg)' },
-                            '50%': { transform: 'translateY(-12px) rotate(3deg)' },
-                        }
                     }
                 }
             }
@@ -53,249 +49,290 @@
 
     <style>
         body {
-            background-color: #F5EFE1;
-            color: #2C3539;
+            background-color: #F4EFE6;
+            color: #1E232A;
             font-family: 'Plus Jakarta Sans', sans-serif;
             overflow-x: hidden;
+            /* Texture Subtle Pattern */
+            background-image: radial-gradient(#1E232A 0.5px, transparent 0.5px);
+            background-size: 24px 24px;
+            background-color: #F4EFE6;
+            background-position: 0 0;
+            background-attachment: fixed;
+            opacity: 0.98;
         }
 
-        .glass-card {
-            background: rgba(255, 255, 255, 0.65);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border: 1px solid rgba(174, 196, 212, 0.35);
-            box-shadow: 0 8px 32px 0 rgba(174, 196, 212, 0.15);
-        }
-
-        .glass-card-hover {
-            transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
-        }
-
-        .glass-card-hover:hover {
-            transform: translateY(-4px) scale(1.01);
-            background: rgba(255, 255, 255, 0.85);
-            border-color: rgba(174, 196, 212, 0.7);
-            box-shadow: 0 12px 30px rgba(174, 196, 212, 0.3);
-        }
-
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #F5EFE1;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #AEC4D4;
-            border-radius: 99px;
-        }
-
-        .blob {
-            position: absolute;
-            border-radius: 50%;
-            filter: blur(50px);
-            z-index: 0;
-            opacity: 0.6;
+        .noise-overlay {
+            position: fixed;
+            top: 0; left: 0; width: 100vw; height: 100vh;
+            content: "";
+            opacity: 0.03;
             pointer-events: none;
+            z-index: 1;
+            background: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+        }
+
+        .glass-panel {
+            background: rgba(250, 247, 242, 0.75);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(232, 225, 213, 0.8);
+            box-shadow: 0 10px 30px -10px rgba(30, 35, 42, 0.05);
+        }
+
+        .glass-panel-hover {
+            transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .glass-panel-hover:hover {
+            transform: translateY(-3px);
+            background: rgba(255, 255, 255, 0.9);
+            border-color: rgba(136, 163, 183, 0.5);
+            box-shadow: 0 16px 36px -12px rgba(30, 35, 42, 0.08);
         }
 
         .toast-notification {
-            transform: translateY(100px);
+            transform: translateY(80px);
             opacity: 0;
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
         .toast-notification.show {
             transform: translateY(0);
             opacity: 1;
         }
+
+        /* Subtle floating animations */
+        @keyframes float-gentle {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-8px) rotate(1deg); }
+        }
+        .animate-float {
+            animation: float-gentle 8s ease-in-out infinite;
+        }
     </style>
 </head>
-<body class="min-h-screen flex flex-col items-center justify-between p-4 md:p-8 relative selection:bg-softblue selection:text-white">
+<body class="min-h-screen flex flex-col items-center justify-between p-4 md:p-10 relative selection:bg-burgundy selection:text-white">
 
-    <div class="blob w-72 h-72 bg-softblue top-10 -left-20 animate-float-slow"></div>
-    <div class="blob w-80 h-80 bg-[#E6DAC3] top-1/3 -right-20 animate-float-delayed"></div>
-    <div class="blob w-64 h-64 bg-softblue-light bottom-20 left-10 animate-float-slow"></div>
+    <div class="noise-overlay"></div>
 
-    <main class="w-full max-w-md mx-auto z-10 flex flex-col items-center gap-6 my-auto pt-6 pb-12">
+    <!-- Decorative Soft Background Blobs & Shapes -->
+    <div class="fixed top-12 left-10 w-96 h-96 bg-softblue-light/20 rounded-full blur-3xl pointer-events-none -z-10 animate-float"></div>
+    <div class="fixed bottom-20 right-10 w-80 h-80 bg-cream-dark/60 rounded-full blur-3xl pointer-events-none -z-10"></div>
+    
+    <!-- Subtle Frame Lines -->
+    <div class="fixed top-4 left-4 right-4 bottom-4 border border-charcoal/5 pointer-events-none -z-10 rounded-3xl hidden md:block"></div>
 
-        <header class="flex flex-col items-center text-center w-full group">
-            <div class="relative mb-4">
-                <div class="absolute -inset-1.5 bg-gradient-to-tr from-softblue to-cream-dark rounded-full blur-md opacity-70 group-hover:opacity-100 transition duration-500"></div>
-                
-                <div class="relative w-28 h-28 md:w-32 md:h-32 rounded-full p-1 bg-white shadow-xl overflow-hidden flex items-center justify-center">
-                    <!-- Menggunakan file foto Furina lokal yang baru kamu upload -->
+    <main class="w-full max-w-lg mx-auto z-10 flex flex-col items-center gap-7 my-auto pt-4 pb-12">
+
+        <!-- HERO / PROFILE SECTION -->
+        <header class="flex flex-col items-center text-center w-full glass-panel rounded-3xl p-8 relative overflow-hidden">
+            
+            <!-- Tiny Decorative Japanese/French Minimal Cross Accent -->
+            <div class="absolute top-4 left-5 text-charcoal/20 text-xs font-serif tracking-widest">✦ 01</div>
+            <div class="absolute top-4 right-5 text-charcoal/20 text-xs font-serif">FR / JP</div>
+
+            <!-- Profile Picture Container -->
+            <div class="relative mb-5 mt-2">
+                <!-- Subtle Decorative Rings -->
+                <div class="absolute -inset-2 rounded-full border border-charcoal/10 scale-105"></div>
+                <div class="absolute -inset-4 rounded-full border border-dashed border-charcoal/10 animate-float"></div>
+
+                <div class="relative w-28 h-28 md:w-32 md:h-32 rounded-full p-1.5 bg-cream-light shadow-md overflow-hidden flex items-center justify-center border border-cream-dark">
                     <img 
                         src="profile.jpg.jpg" 
-                        alt="Furina AlwalluL" 
-                        class="w-full h-full object-cover rounded-full transform group-hover:scale-105 transition duration-500"
-                        onerror="this.src='https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=300&q=80';"
+                        alt="AlwalluL Avatar" 
+                        class="w-full h-full object-cover rounded-full filter contrast-[1.02]"
+                        onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=300&q=80';"
                     >
                 </div>
 
-                <div class="absolute bottom-1 right-1 bg-white p-1.5 rounded-full shadow-md" title="Active">
-                    <span class="block w-3 h-3 bg-emerald-400 rounded-full animate-pulse"></span>
+                <div class="absolute bottom-1 right-1 bg-cream-light p-1 rounded-full border border-cream-dark shadow-sm" title="Active">
+                    <span class="block w-2.5 h-2.5 bg-emerald-600 rounded-full"></span>
                 </div>
             </div>
 
-            <h1 class="text-2xl md:text-3xl font-extrabold tracking-tight text-charcoal font-heading flex items-center gap-2">
+            <!-- Profile Info -->
+            <div class="flex items-center gap-2 mb-1">
+                <span class="text-xs font-serif italic text-burgundy tracking-widest uppercase">Portfolio & Links</span>
+            </div>
+            
+            <h1 class="text-3xl md:text-4xl font-serif font-semibold tracking-tight text-charcoal">
                 AlwalluL
-                <i data-lucide="sparkles" class="w-5 h-5 text-softblue-dark fill-softblue"></i>
             </h1>
-            <p class="text-xs md:text-sm font-medium text-charcoal-muted mt-1.5 max-w-xs flex items-center justify-center gap-1.5 bg-white/50 px-3 py-1 rounded-full border border-softblue/30 backdrop-blur-sm">
-                <span>aesthetic casual space</span>
-                <span class="text-softblue-dark">✦</span>
-                <span>welcome to my links</span>
+            
+            <p class="text-xs md:text-sm font-normal text-charcoal-muted mt-2 max-w-xs leading-relaxed">
+                Aesthetic casual space for music, gaming & minimal design. Welcome to my personal hub.
             </p>
+
+            <!-- Quick Social Bar -->
+            <div class="flex items-center justify-center gap-3 w-full mt-6 pt-5 border-t border-charcoal/10">
+                <a href="https://instagram.com/_alwallul29j" target="_blank" rel="noopener noreferrer" 
+                   class="w-10 h-10 glass-panel rounded-full text-charcoal hover:text-burgundy hover:border-burgundy/30 flex items-center justify-center transition-all shadow-sm" title="Instagram">
+                    <i data-lucide="instagram" class="w-4 h-4"></i>
+                </a>
+                <a href="https://tiktok.com/@jayeon290" target="_blank" rel="noopener noreferrer" 
+                   class="w-10 h-10 glass-panel rounded-full text-charcoal hover:text-burgundy hover:border-burgundy/30 flex items-center justify-center transition-all shadow-sm" title="TikTok">
+                    <i data-lucide="music-2" class="w-4 h-4"></i>
+                </a>
+                <a href="https://music.apple.com/id/playlist/pl.u-yZyVEyZtZLo4y49" target="_blank" rel="noopener noreferrer" 
+                   class="w-10 h-10 glass-panel rounded-full text-charcoal hover:text-burgundy hover:border-burgundy/30 flex items-center justify-center transition-all shadow-sm" title="Apple Music">
+                    <i data-lucide="disc" class="w-4 h-4"></i>
+                </a>
+                <button onclick="openMlModal()" 
+                   class="w-10 h-10 glass-panel rounded-full text-charcoal hover:text-burgundy hover:border-burgundy/30 flex items-center justify-center transition-all shadow-sm" title="Mobile Legends ID">
+                    <i data-lucide="gamepad-2" class="w-4 h-4"></i>
+                </button>
+            </div>
         </header>
 
-        <section class="flex items-center justify-center gap-3 w-full py-1">
+        <!-- LINKS SECTION -->
+        <section class="w-full flex flex-col gap-3.5">
+            
+            <div class="flex items-center justify-between px-2">
+                <span class="text-xs font-serif italic text-charcoal-muted uppercase tracking-widest">✦ Direct Links</span>
+                <div class="h-[1px] flex-1 bg-charcoal/10 ml-4"></div>
+            </div>
+
+            <!-- Link Item 1: Instagram -->
             <a href="https://instagram.com/_alwallul29j" target="_blank" rel="noopener noreferrer" 
-               class="p-2.5 glass-card rounded-2xl text-charcoal hover:text-softblue-dark hover:bg-white transition-all transform hover:-translate-y-1 shadow-sm" title="Instagram">
-                <i data-lucide="instagram" class="w-5 h-5"></i>
-            </a>
-            <a href="https://tiktok.com/@jayeon290" target="_blank" rel="noopener noreferrer" 
-               class="p-2.5 glass-card rounded-2xl text-charcoal hover:text-softblue-dark hover:bg-white transition-all transform hover:-translate-y-1 shadow-sm" title="TikTok">
-                <i data-lucide="music-2" class="w-5 h-5"></i>
-            </a>
-            <a href="https://music.apple.com/id/playlist/pl.u-yZyVEyZtZLo4y49" target="_blank" rel="noopener noreferrer" 
-               class="p-2.5 glass-card rounded-2xl text-charcoal hover:text-softblue-dark hover:bg-white transition-all transform hover:-translate-y-1 shadow-sm" title="Apple Music">
-                <i data-lucide="disc" class="w-5 h-5"></i>
-            </a>
-            <button onclick="openMlModal()" 
-               class="p-2.5 glass-card rounded-2xl text-charcoal hover:text-softblue-dark hover:bg-white transition-all transform hover:-translate-y-1 shadow-sm" title="Mobile Legends ID">
-                <i data-lucide="gamepad-2" class="w-5 h-5"></i>
-            </button>
-        </section>
-
-        <section class="w-full flex flex-col gap-3.5 mt-2">
-
-            <a href="https://instagram.com/_alwallul29j" target="_blank" rel="noopener noreferrer" class="glass-card glass-card-hover rounded-2xl p-4 flex items-center justify-between group cursor-pointer border border-white/60">
-                <div class="flex items-center gap-3.5">
-                    <div class="w-11 h-11 rounded-xl bg-gradient-to-tr from-softblue to-softblue-light flex items-center justify-center text-charcoal shadow-sm group-hover:scale-105 transition">
+               class="glass-panel glass-panel-hover rounded-2xl p-4 flex items-center justify-between group cursor-pointer">
+                <div class="flex items-center gap-4">
+                    <div class="w-11 h-11 rounded-xl bg-cream-dark/60 text-charcoal flex items-center justify-center border border-charcoal/5 group-hover:bg-burgundy group-hover:text-white transition duration-300">
                         <i data-lucide="instagram" class="w-5 h-5"></i>
                     </div>
                     <div class="text-left">
-                        <div class="text-xs font-bold tracking-wider uppercase text-softblue-dark">Instagram</div>
-                        <div class="text-sm font-semibold text-charcoal">Nevertheles <span class="text-xs text-charcoal-light font-normal">(@_alwallul29j)</span></div>
+                        <div class="text-[10px] font-semibold tracking-widest uppercase text-burgundy">Social Media</div>
+                        <div class="text-sm font-semibold text-charcoal">Instagram <span class="text-xs text-charcoal-muted font-normal">(@_alwallul29j)</span></div>
                     </div>
                 </div>
-                <div class="w-8 h-8 rounded-full bg-cream-dark/40 flex items-center justify-center text-charcoal-muted group-hover:bg-softblue group-hover:text-white transition">
+                <div class="w-7 h-7 rounded-full text-charcoal-light group-hover:text-charcoal transition flex items-center justify-center">
                     <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
                 </div>
             </a>
 
-            <a href="https://tiktok.com/@jayeon290" target="_blank" rel="noopener noreferrer" class="glass-card glass-card-hover rounded-2xl p-4 flex items-center justify-between group cursor-pointer border border-white/60">
-                <div class="flex items-center gap-3.5">
-                    <div class="w-11 h-11 rounded-xl bg-gradient-to-tr from-softblue to-softblue-light flex items-center justify-center text-charcoal shadow-sm group-hover:scale-105 transition">
+            <!-- Link Item 2: TikTok -->
+            <a href="https://tiktok.com/@jayeon290" target="_blank" rel="noopener noreferrer" 
+               class="glass-panel glass-panel-hover rounded-2xl p-4 flex items-center justify-between group cursor-pointer">
+                <div class="flex items-center gap-4">
+                    <div class="w-11 h-11 rounded-xl bg-cream-dark/60 text-charcoal flex items-center justify-center border border-charcoal/5 group-hover:bg-burgundy group-hover:text-white transition duration-300">
                         <i data-lucide="music-2" class="w-5 h-5"></i>
                     </div>
                     <div class="text-left">
-                        <div class="text-xs font-bold tracking-wider uppercase text-softblue-dark">TikTok</div>
-                        <div class="text-sm font-semibold text-charcoal">@jayeon290</div>
+                        <div class="text-[10px] font-semibold tracking-widest uppercase text-burgundy">Shorts & Clips</div>
+                        <div class="text-sm font-semibold text-charcoal">TikTok <span class="text-xs text-charcoal-muted font-normal">(@jayeon290)</span></div>
                     </div>
                 </div>
-                <div class="w-8 h-8 rounded-full bg-cream-dark/40 flex items-center justify-center text-charcoal-muted group-hover:bg-softblue group-hover:text-white transition">
+                <div class="w-7 h-7 rounded-full text-charcoal-light group-hover:text-charcoal transition flex items-center justify-center">
                     <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
                 </div>
             </a>
 
-            <a href="https://music.apple.com/id/playlist/pl.u-yZyVEyZtZLo4y49" target="_blank" rel="noopener noreferrer" class="glass-card glass-card-hover rounded-2xl p-4 flex items-center justify-between group cursor-pointer border border-white/60">
-                <div class="flex items-center gap-3.5">
-                    <div class="w-11 h-11 rounded-xl bg-gradient-to-tr from-rose-200 to-softblue-light flex items-center justify-center text-charcoal shadow-sm group-hover:scale-105 transition">
-                        <i data-lucide="disc" class="w-5 h-5 text-rose-500"></i>
+            <!-- Link Item 3: Apple Music Playlist -->
+            <a href="https://music.apple.com/id/playlist/pl.u-yZyVEyZtZLo4y49" target="_blank" rel="noopener noreferrer" 
+               class="glass-panel glass-panel-hover rounded-2xl p-4 flex items-center justify-between group cursor-pointer">
+                <div class="flex items-center gap-4">
+                    <div class="w-11 h-11 rounded-xl bg-cream-dark/60 text-charcoal flex items-center justify-center border border-charcoal/5 group-hover:bg-burgundy group-hover:text-white transition duration-300">
+                        <i data-lucide="disc" class="w-5 h-5"></i>
                     </div>
                     <div class="text-left">
-                        <div class="text-xs font-bold tracking-wider uppercase text-softblue-dark">Apple Music Playlist</div>
-                        <div class="text-sm font-semibold text-charcoal">My Favorite Tracks 🎵</div>
+                        <div class="text-[10px] font-semibold tracking-widest uppercase text-burgundy">Audio Space</div>
+                        <div class="text-sm font-semibold text-charcoal">Apple Music Playlist 🎵</div>
                     </div>
                 </div>
-                <div class="w-8 h-8 rounded-full bg-cream-dark/40 flex items-center justify-center text-charcoal-muted group-hover:bg-softblue group-hover:text-white transition">
+                <div class="w-7 h-7 rounded-full text-charcoal-light group-hover:text-charcoal transition flex items-center justify-center">
                     <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
                 </div>
             </a>
 
-            <div class="glass-card rounded-2xl p-4 border border-white/80 bg-white/70 shadow-md transition-all">
-                <div class="flex items-center justify-between mb-3">
+            <!-- MOBILE LEGENDS GAMING CARD -->
+            <div class="glass-panel rounded-2xl p-5 border border-cream-dark/80 relative overflow-hidden my-1">
+                <div class="flex items-center justify-between mb-4">
                     <div class="flex items-center gap-3">
-                        <div class="w-11 h-11 rounded-xl bg-gradient-to-tr from-amber-200 to-softblue flex items-center justify-center text-charcoal shadow-sm">
-                            <i data-lucide="gamepad-2" class="w-5 h-5 text-amber-800"></i>
+                        <div class="w-10 h-10 rounded-xl bg-charcoal text-cream-light flex items-center justify-center shadow-sm">
+                            <i data-lucide="gamepad-2" class="w-5 h-5"></i>
                         </div>
                         <div>
-                            <span class="text-[10px] font-bold tracking-widest uppercase bg-softblue/30 text-charcoal px-2 py-0.5 rounded-full">Mobile Legends</span>
+                            <span class="text-[10px] font-serif uppercase tracking-widest text-burgundy block">Mobile Legends</span>
                             <h3 class="text-sm font-bold text-charcoal">Jayeon</h3>
                         </div>
                     </div>
-                    <span class="text-xs font-semibold text-charcoal-muted bg-cream px-2.5 py-1 rounded-lg border border-softblue/20">
+                    <span class="text-xs font-mono font-semibold text-charcoal-muted bg-cream-dark/50 px-3 py-1 rounded-md border border-charcoal/5">
                         ID: 203652127
                     </span>
                 </div>
                 
                 <button 
                     onclick="copyMlId('203652127')" 
-                    class="w-full py-2.5 px-4 bg-softblue hover:bg-softblue-hover text-charcoal font-semibold text-xs rounded-xl flex items-center justify-center gap-2 transition duration-200 shadow-sm active:scale-95"
+                    class="w-full py-2.5 px-4 bg-charcoal hover:bg-burgundy text-cream-light font-medium text-xs rounded-xl flex items-center justify-center gap-2 transition duration-300 shadow-sm active:scale-98"
                 >
                     <i data-lucide="copy" class="w-3.5 h-3.5"></i>
                     <span>Copy MLBB ID</span>
                 </button>
             </div>
 
-            <div class="glass-card rounded-2xl p-4 border border-white/60 flex flex-col gap-3">
+            <!-- APPLE MUSIC FEATURED SECTION -->
+            <div class="glass-panel rounded-2xl p-5 flex flex-col gap-3.5 relative overflow-hidden">
                 <div class="flex items-center justify-between">
-                    <div class="flex items-center gap-2 text-xs font-bold text-charcoal-muted uppercase tracking-wider">
-                        <i data-lucide="headphones" class="w-4 h-4 text-softblue-dark"></i>
-                        <span>Playlist Chill Vibes</span>
+                    <div class="flex items-center gap-2">
+                        <span class="w-2 h-2 rounded-full bg-burgundy animate-pulse"></span>
+                        <span class="text-xs font-serif italic text-charcoal tracking-wide">Currently Playing / Playlist</span>
                     </div>
-                    <span class="text-[10px] bg-rose-100 text-rose-600 px-2 py-0.5 rounded-full font-bold">Apple Music</span>
+                    <span class="text-[10px] font-semibold text-burgundy bg-burgundy/10 px-2.5 py-0.5 rounded-full">Apple Music</span>
                 </div>
-                <p class="text-xs text-charcoal-muted">Press play to listen directly or tap open on Apple Music.</p>
-                <div class="rounded-xl overflow-hidden shadow-sm bg-charcoal/5 border border-softblue/30">
+
+                <div class="rounded-xl overflow-hidden border border-charcoal/10 bg-black/5">
                     <iframe allow="autoplay *; encrypted-media *; fullscreen *; clipboard-write" frameborder="0" height="175" style="width:100%;max-width:660px;overflow:hidden;border-radius:10px;" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-storage-access-by-user-activation allow-top-navigation-by-user-activation" src="https://embed.music.apple.com/id/playlist/pl.u-yZyVEyZtZLo4y49"></iframe>
                 </div>
             </div>
 
         </section>
 
-        <section class="w-full glass-card rounded-2xl p-4 text-center border border-white/60">
-            <p class="text-xs text-charcoal-muted italic">
-                "Enjoying the music, gaming, and aesthetic simple things in life ✨"
+        <!-- AESTHETIC QUOTE -->
+        <section class="w-full text-center py-2">
+            <p class="text-xs font-serif italic text-charcoal-muted leading-relaxed">
+                "Enjoying the music, gaming, and aesthetic simple things in life."
             </p>
         </section>
 
     </main>
 
-    <footer class="w-full max-w-md mx-auto text-center z-10 pt-2 pb-6">
-        <p class="text-xs text-charcoal-light flex items-center justify-center gap-1 font-medium">
-            Designed with <i data-lucide="heart" class="w-3.5 h-3.5 text-rose-400 fill-rose-400"></i> for <span class="font-semibold text-charcoal">AlwalluL</span>
+    <!-- FOOTER -->
+    <footer class="w-full max-w-lg mx-auto text-center z-10 pt-2 pb-4">
+        <p class="text-[11px] text-charcoal-light flex items-center justify-center gap-1 font-normal tracking-wide">
+            Designed for <span class="font-semibold text-charcoal">AlwalluL</span> ✦ 2026
         </p>
     </footer>
 
-    <div id="toast" class="toast-notification fixed bottom-6 left-1/2 -translate-x-1/2 z-50 glass-card bg-charcoal/90 text-white px-5 py-3 rounded-full shadow-2xl flex items-center gap-2.5 text-xs font-medium border border-white/20">
+    <!-- TOAST NOTIFICATION -->
+    <div id="toast" class="toast-notification fixed bottom-6 left-1/2 -translate-x-1/2 z-50 glass-panel bg-charcoal/95 text-cream-light px-5 py-3 rounded-full shadow-xl flex items-center gap-2.5 text-xs font-medium border border-white/10">
         <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-400"></i>
         <span id="toast-message">Mobile Legends ID copied successfully!</span>
     </div>
 
-    <div id="ml-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-charcoal/30 backdrop-blur-sm opacity-0 pointer-events-none transition duration-300">
-        <div class="glass-card bg-white/90 max-w-xs w-full rounded-3xl p-6 text-center border border-white flex flex-col items-center gap-4 shadow-2xl transform scale-95 transition duration-300" id="ml-modal-content">
-            <div class="w-16 h-16 rounded-2xl bg-softblue/30 flex items-center justify-center text-softblue-dark">
-                <i data-lucide="gamepad-2" class="w-8 h-8"></i>
+    <!-- MOBILE LEGENDS MODAL -->
+    <div id="ml-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-charcoal/40 backdrop-blur-sm opacity-0 pointer-events-none transition duration-300">
+        <div class="glass-panel bg-cream-light max-w-xs w-full rounded-3xl p-6 text-center border border-white flex flex-col items-center gap-4 shadow-2xl transform scale-95 transition duration-300" id="ml-modal-content">
+            <div class="w-14 h-14 rounded-2xl bg-charcoal text-cream-light flex items-center justify-center">
+                <i data-lucide="gamepad-2" class="w-7 h-7"></i>
             </div>
             <div>
-                <h3 class="text-lg font-bold text-charcoal">Mobile Legends Profile</h3>
-                <p class="text-xs text-charcoal-muted mt-1">Add me to play together!</p>
+                <h3 class="text-lg font-serif font-bold text-charcoal">Mobile Legends Profile</h3>
+                <p class="text-xs text-charcoal-muted mt-0.5">Add me to play together!</p>
             </div>
             
-            <div class="w-full bg-cream-light p-3 rounded-xl border border-softblue/30 text-left">
-                <div class="text-[11px] text-charcoal-light uppercase font-semibold">Username</div>
+            <div class="w-full bg-cream-dark/40 p-3.5 rounded-xl border border-charcoal/5 text-left">
+                <div class="text-[10px] text-charcoal-light uppercase font-semibold tracking-wider">Username</div>
                 <div class="text-sm font-bold text-charcoal mb-2">Jayeon</div>
-                <div class="text-[11px] text-charcoal-light uppercase font-semibold">User ID</div>
-                <div class="text-sm font-bold text-charcoal">203652127</div>
+                <div class="text-[10px] text-charcoal-light uppercase font-semibold tracking-wider">User ID</div>
+                <div class="text-sm font-mono font-bold text-charcoal">203652127</div>
             </div>
 
             <div class="flex gap-2 w-full">
-                <button onclick="copyMlId('203652127')" class="flex-1 py-2.5 bg-softblue hover:bg-softblue-hover text-charcoal font-semibold text-xs rounded-xl flex items-center justify-center gap-1.5 transition">
+                <button onclick="copyMlId('203652127')" class="flex-1 py-2.5 bg-charcoal hover:bg-burgundy text-cream-light font-medium text-xs rounded-xl flex items-center justify-center gap-1.5 transition">
                     <i data-lucide="copy" class="w-3.5 h-3.5"></i> Copy ID
                 </button>
-                <button onclick="closeMlModal()" class="px-4 py-2.5 bg-cream-dark/50 hover:bg-cream-dark text-charcoal font-semibold text-xs rounded-xl transition">
+                <button onclick="closeMlModal()" class="px-4 py-2.5 bg-cream-dark hover:bg-cream-dark/80 text-charcoal font-medium text-xs rounded-xl transition">
                     Close
                 </button>
             </div>
