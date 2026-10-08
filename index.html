@@ -1,232 +1,434 @@
-IMPORTANT — DO NOT REDESIGN THE WEBSITE.
-THIS IS A BACKGROUND-ONLY + DECORATION EDIT.
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AlwalluL — Personal Space</title>
+    
+    <!-- Tailwind CSS & Lucide Icons -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <!-- Fonts: Cormorant Garamond (Serif) & Plus Jakarta Sans (Sans-serif) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        cream: {
+                            DEFAULT: '#F5EFE1',
+                            dark: '#EAE1CE',
+                            light: '#FAF7F0',
+                        },
+                        softblue: {
+                            DEFAULT: '#AEC4D4',
+                            hover: '#98B3C7',
+                            dark: '#7A9CB5',
+                            soft: 'rgba(174, 196, 212, 0.12)',
+                        },
+                        charcoal: {
+                            DEFAULT: '#2C3539',
+                            muted: '#5A656B',
+                            light: '#8A979E',
+                        }
+                    },
+                    fontFamily: {
+                        serif: ['Cormorant Garamond', 'serif'],
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
 
-I want to transform the CURRENT AlwalluL website background into an elegant fantasy aesthetic inspired by the visual language of high-quality fantasy game interfaces such as Genshin-style fantasy UI.
+    <style>
+        body {
+            background-color: #F5EFE1;
+            color: #2C3539;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            overflow-x: hidden;
+            background-image: radial-gradient(#AEC4D4 0.4px, transparent 0.4px);
+            background-size: 28px 28px;
+            background-position: 0 0;
+            background-attachment: fixed;
+            opacity: 0.98;
+        }
 
-Use the FIRST uploaded image as the main reference for the overall background composition, framing, soft blue atmosphere, and ornamental structure.
+        .noise-overlay {
+            position: fixed;
+            top: 0; left: 0; width: 100vw; height: 100vh;
+            content: "";
+            opacity: 0.025;
+            pointer-events: none;
+            z-index: 1;
+            background: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+        }
 
-Use the SECOND uploaded image as reference for the decorative line-art motifs and elegant fantasy ornaments.
+        .glass-panel {
+            background: rgba(245, 239, 225, 0.85);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(174, 196, 212, 0.35);
+            box-shadow: 0 10px 30px -10px rgba(174, 196, 212, 0.15);
+        }
 
-IMPORTANT:
-Do NOT copy any specific Genshin Impact character, logo, symbol, UI, icon, or copyrighted artwork.
-Only use the general visual language:
-- elegant fantasy
-- magical
-- refined
-- ornamental
-- celestial
-- elemental
-- delicate fantasy line art
-- premium game-interface atmosphere
+        .glass-panel-hover {
+            transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+        }
 
-==================================================
-STRICT PRESERVATION RULE
-==================================================
+        .glass-panel-hover:hover {
+            transform: translateY(-3px);
+            background: rgba(250, 247, 240, 0.95);
+            border-color: rgba(174, 196, 212, 0.7);
+            box-shadow: 0 16px 36px -12px rgba(174, 196, 212, 0.25);
+        }
 
-DO NOT CHANGE ANY EXISTING WEBSITE CONTENT OR UI.
+        .toast-notification {
+            transform: translateY(80px);
+            opacity: 0;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
 
-Keep EXACTLY the same:
-- profile image
-- Instagram icon
-- TikTok icon
-- Apple Music icon
-- gaming icon
-- all other icons
-- buttons
-- cards
-- text
-- title
-- description
-- font family
-- typography
-- font sizes
-- font weights
-- spacing
-- layout
-- alignment
-- borders
-- shadows on existing components
-- links
-- animations
-- interactions
-- Mobile Legends section
-- Apple Music section
-- Instagram section
-- TikTok section
+        .toast-notification.show {
+            transform: translateY(0);
+            opacity: 1;
+        }
 
-DO NOT move, resize, replace, recolor, redesign, or delete any existing UI element.
+        @keyframes float-gentle {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-6px) rotate(0.5deg); }
+        }
+        .animate-float {
+            animation: float-gentle 8s ease-in-out infinite;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col items-center justify-between p-4 md:p-10 relative selection:bg-softblue selection:text-white">
 
-The website should look like the EXACT SAME website placed inside a beautiful fantasy environment.
+    <div class="noise-overlay"></div>
 
-==================================================
-REMOVE PREVIOUS DECORATIONS
-==================================================
+    <!-- BACKGROUND FANTASY ELEGANT FILIGREE & ORNAMENTS (STRICTLY IN BACKGROUND -Z-10) -->
+    <div class="fixed inset-0 pointer-events-none -z-10 flex flex-col justify-between items-center p-4 overflow-hidden opacity-40">
+        <!-- Top Ornamental Curved Filigree -->
+        <svg class="w-full max-w-xl text-[#AEC4D4]" viewBox="0 0 500 80" fill="none" stroke="currentColor" stroke-width="0.8">
+            <path d="M 250 10 C 180 10 130 50 50 20 C 120 70 200 40 250 60 C 300 40 380 70 450 20 C 370 50 320 10 250 10 Z" />
+            <circle cx="250" cy="35" r="12" stroke-width="0.6" stroke-dasharray="2 2" />
+            <circle cx="250" cy="35" r="4" fill="currentColor" fill-opacity="0.3" />
+            <circle cx="100" cy="25" r="3" />
+            <circle cx="400" cy="25" r="3" />
+            <line x1="0" y1="5" x2="500" y2="5" stroke-dasharray="4 4" />
+        </svg>
 
-Remove ONLY the recently added decorative:
-- butterfly decorations
-- sparkle/star decorations
+        <!-- Center Background Celestial Spiral Circles -->
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[520px] h-[520px] pointer-events-none">
+            <svg class="w-full h-full text-[#AEC4D4]" viewBox="0 0 500 500" fill="none" stroke="currentColor" stroke-width="0.6">
+                <circle cx="250" cy="250" r="230" stroke-dasharray="3 3" />
+                <circle cx="250" cy="250" r="190" stroke-width="0.4" />
+                <circle cx="250" cy="250" r="150" stroke-dasharray="6 4" />
+                <path d="M 250 10 L 250 490 M 10 250 L 490 250" stroke-width="0.3" stroke-dasharray="2 2" />
+                <!-- Spiral Curves / Filigree Motifs -->
+                <path d="M 250 60 C 200 120 200 180 250 250 C 300 320 300 380 250 440" />
+                <path d="M 60 250 C 120 200 180 200 250 250 C 320 300 380 300 440 250" />
+            </svg>
+        </div>
 
-Do not remove any existing website icons.
+        <!-- Bottom Ornamental Curved Filigree -->
+        <svg class="w-full max-w-xl text-[#AEC4D4]" viewBox="0 0 500 80" fill="none" stroke="currentColor" stroke-width="0.8">
+            <path d="M 250 70 C 180 70 130 30 50 60 C 120 10 200 40 250 20 C 300 40 380 10 450 60 C 370 30 320 70 250 70 Z" />
+            <circle cx="250" cy="45" r="12" stroke-width="0.6" stroke-dasharray="2 2" />
+            <circle cx="250" cy="45" r="4" fill="currentColor" fill-opacity="0.3" />
+            <circle cx="100" cy="55" r="3" />
+            <circle cx="400" cy="55" r="3" />
+            <line x1="0" y1="75" x2="500" y2="75" stroke-dasharray="4 4" />
+        </svg>
+    </div>
 
-==================================================
-NEW BACKGROUND STYLE
-==================================================
+    <!-- Soft Ambient Color Blobs -->
+    <div class="fixed top-12 left-10 w-96 h-96 bg-softblue-soft rounded-full blur-3xl pointer-events-none -z-10 animate-float"></div>
+    <div class="fixed bottom-20 right-10 w-80 h-80 bg-cream-dark/60 rounded-full blur-3xl pointer-events-none -z-10"></div>
 
-Create a sophisticated fantasy background inspired by the FIRST reference image.
+    <main class="w-full max-w-lg mx-auto z-10 flex flex-col items-center gap-7 my-auto pt-4 pb-12">
 
-The background should feel like:
+        <!-- HERO / PROFILE SECTION -->
+        <header class="flex flex-col items-center text-center w-full glass-panel rounded-3xl p-8 relative overflow-hidden">
+            
+            <!-- Minimal Accents -->
+            <div class="absolute top-4 left-5 text-softblue-dark/50 text-[11px] font-serif tracking-widest">✦ 01</div>
+            <div class="absolute top-4 right-5 text-softblue-dark/50 text-[11px] font-serif tracking-widest">FR / JP</div>
 
-"an elegant magical fantasy game menu"
+            <!-- Profile Picture Container -->
+            <div class="relative mb-5 mt-2">
+                <div class="absolute -inset-2 rounded-full border border-softblue/40 scale-105"></div>
+                <div class="absolute -inset-4 rounded-full border border-dashed border-softblue/25 animate-float"></div>
 
-rather than:
+                <div class="relative w-28 h-28 md:w-32 md:h-32 rounded-full p-1.5 bg-cream shadow-md overflow-hidden flex items-center justify-center border border-cream-dark">
+                    <img 
+                        src="profile.jpg.jpg" 
+                        alt="AlwalluL Avatar" 
+                        class="w-full h-full object-cover rounded-full filter contrast-[1.02]"
+                        onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=300&q=80';"
+                    >
+                </div>
 
-"an invitation card"
-or
-"cute pastel website"
+                <div class="absolute bottom-1 right-1 bg-cream p-1 rounded-full border border-softblue/40 shadow-sm" title="Active">
+                    <span class="block w-2.5 h-2.5 bg-softblue-dark rounded-full"></span>
+                </div>
+            </div>
 
-Use a soft vertical atmosphere:
+            <!-- Profile Info -->
+            <div class="flex items-center gap-2 mb-1">
+                <span class="text-[11px] font-serif italic text-softblue-dark tracking-widest uppercase">AlwalluL Link</span>
+            </div>
+            
+            <h1 class="text-3xl md:text-4xl font-serif font-semibold tracking-tight text-charcoal">
+                AlwalluL
+            </h1>
+            
+            <p class="text-xs md:text-sm font-normal text-charcoal-muted mt-2 max-w-xs leading-relaxed">
+                Aesthetic space for music, gaming. Welcome to my roam🦋
+            </p>
 
-TOP:
-- warm ivory / pale cream
-- almost white
-- very clean
-- subtle luminous feeling
+            <!-- 4 CIRCULAR SOCIAL BUTTONS WITH EXACT BRAND LOGOS -->
+            <div class="flex items-center justify-center gap-3 w-full mt-6 pt-5 border-t border-softblue/30">
+                
+                <!-- 1. INSTAGRAM BRAND ICON -->
+                <a href="https://instagram.com/_alwallul29j" target="_blank" rel="noopener noreferrer" 
+                   class="w-10 h-10 rounded-full bg-cream border border-softblue/40 text-charcoal hover:bg-softblue hover:text-white hover:border-softblue flex items-center justify-center transition-all duration-300 shadow-sm group" title="Instagram">
+                    <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24">
+                        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                    </svg>
+                </a>
 
-MIDDLE:
-- ivory mixed with extremely soft dusty blue
-- subtle translucent fantasy patterns
-- very faint radial light
-- delicate ornamental geometry
+                <!-- 2. TIKTOK BRAND ICON -->
+                <a href="https://tiktok.com/@jayeon290" target="_blank" rel="noopener noreferrer" 
+                   class="w-10 h-10 rounded-full bg-cream border border-softblue/40 text-charcoal hover:bg-softblue hover:text-white hover:border-softblue flex items-center justify-center transition-all duration-300 shadow-sm group" title="TikTok">
+                    <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24">
+                        <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64c.29 0 .56.04.82.11V9.4a6.33 6.33 0 0 0-1-.08A6.34 6.34 0 0 0 3 15.66a6.34 6.34 0 0 0 10.86 4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.02z"/>
+                    </svg>
+                </a>
 
-BOTTOM:
-- gradually transition into soft dusty blue
-- use the existing #AEC4D4 as the main blue
-- create a smooth atmospheric gradient
-- slightly deeper blue near the bottom
-- keep it soft and elegant, never saturated
+                <!-- 3. APPLE MUSIC BRAND ICON -->
+                <a href="https://music.apple.com/id/playlist/pl.u-yZyVEyZtZLo4y49" target="_blank" rel="noopener noreferrer" 
+                   class="w-10 h-10 rounded-full bg-cream border border-softblue/40 text-charcoal hover:bg-softblue hover:text-white hover:border-softblue flex items-center justify-center transition-all duration-300 shadow-sm group" title="Apple Music">
+                    <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24">
+                        <path d="M23.997 6.17a3.01 3.01 0 0 0-2.122-2.12C20.005 3.5 12 3.5 12 3.5s-8.005 0-9.875.55A3.01 3.01 0 0 0 .003 6.17 31.5 31.5 0 0 0 0 12c0 1.944.003 3.888.003 5.83a3.01 3.01 0 0 0 2.122 2.12c1.87.55 9.875.55 9.875.55s8.005 0 9.875-.55a3.01 3.01 0 0 0 2.122-2.12c0-1.942.003-3.886.003-5.83 0-1.944-.003-3.888-.003-5.83zm-11.997 10.5a4.67 4.67 0 1 1 0-9.34 4.67 4.67 0 0 1 0 9.34zm0-7.34a2.67 2.67 0 1 0 0 5.34 2.67 2.67 0 0 0 0-5.34z"/>
+                    </svg>
+                </a>
 
-Use these main colors:
-#F5EFE1
-#AEC4D4
+                <!-- 4. GAMING CONTROLLER (Lucide Gamepad-2) -->
+                <button onclick="openMlModal()" 
+                   class="w-10 h-10 rounded-full bg-cream border border-softblue/40 text-charcoal hover:bg-softblue hover:text-white hover:border-softblue flex items-center justify-center transition-all duration-300 shadow-sm" title="Mobile Legends ID">
+                    <i data-lucide="gamepad-2" class="w-4 h-4"></i>
+                </button>
+            </div>
+        </header>
 
-You may use extremely subtle lighter/darker variations of these colors for gradients and depth.
+        <!-- DIRECT LINKS SECTION -->
+        <section class="w-full flex flex-col gap-3.5">
+            
+            <div class="flex items-center justify-between px-2">
+                <span class="text-[11px] font-serif italic text-softblue-dark uppercase tracking-widest">✦ DIRECT LINKS</span>
+                <div class="h-[1px] flex-1 bg-softblue/30 ml-4"></div>
+            </div>
 
-Do NOT introduce bright neon colors.
+            <!-- Link Item 1: Instagram -->
+            <a href="https://instagram.com/_alwallul29j" target="_blank" rel="noopener noreferrer" 
+               class="glass-panel glass-panel-hover rounded-2xl p-4 flex items-center justify-between group cursor-pointer">
+                <div class="flex items-center gap-4">
+                    <div class="w-11 h-11 rounded-xl bg-cream-dark/60 text-charcoal flex items-center justify-center border border-softblue/30 group-hover:bg-softblue group-hover:text-white transition duration-300">
+                        <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                        </svg>
+                    </div>
+                    <div class="text-left">
+                        <div class="text-[10px] font-semibold tracking-widest uppercase text-softblue-dark">Social Media</div>
+                        <div class="text-sm font-semibold text-charcoal">Instagram <span class="text-xs text-charcoal-muted font-normal">(@_alwallul29j)</span></div>
+                    </div>
+                </div>
+                <div class="w-7 h-7 rounded-full text-charcoal-light group-hover:text-softblue-dark transition flex items-center justify-center">
+                    <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+                </div>
+            </a>
 
-==================================================
-FANTASY ORNAMENTS
-==================================================
+            <!-- Link Item 2: TikTok -->
+            <a href="https://tiktok.com/@jayeon290" target="_blank" rel="noopener noreferrer" 
+               class="glass-panel glass-panel-hover rounded-2xl p-4 flex items-center justify-between group cursor-pointer">
+                <div class="flex items-center gap-4">
+                    <div class="w-11 h-11 rounded-xl bg-cream-dark/60 text-charcoal flex items-center justify-center border border-softblue/30 group-hover:bg-softblue group-hover:text-white transition duration-300">
+                        <i data-lucide="music-2" class="w-5 h-5"></i>
+                    </div>
+                    <div class="text-left">
+                        <div class="text-[10px] font-semibold tracking-widest uppercase text-softblue-dark">Shorts & Clips</div>
+                        <div class="text-sm font-semibold text-charcoal">TikTok <span class="text-xs text-charcoal-muted font-normal">(@jayeon290)</span></div>
+                    </div>
+                </div>
+                <div class="w-7 h-7 rounded-full text-charcoal-light group-hover:text-softblue-dark transition flex items-center justify-center">
+                    <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+                </div>
+            </a>
 
-Add subtle fantasy ornamental elements inspired by the SECOND reference image.
+            <!-- Link Item 3: Apple Music Playlist -->
+            <a href="https://music.apple.com/id/playlist/pl.u-yZyVEyZtZLo4y49" target="_blank" rel="noopener noreferrer" 
+               class="glass-panel glass-panel-hover rounded-2xl p-4 flex items-center justify-between group cursor-pointer">
+                <div class="flex items-center gap-4">
+                    <div class="w-11 h-11 rounded-xl bg-cream-dark/60 text-charcoal flex items-center justify-center border border-softblue/30 group-hover:bg-softblue group-hover:text-white transition duration-300">
+                        <i data-lucide="disc" class="w-5 h-5"></i>
+                    </div>
+                    <div class="text-left">
+                        <div class="text-[10px] font-semibold tracking-widest uppercase text-softblue-dark">Audio Space</div>
+                        <div class="text-sm font-semibold text-charcoal">Apple Music Playlist 🎵</div>
+                    </div>
+                </div>
+                <div class="w-7 h-7 rounded-full text-charcoal-light group-hover:text-softblue-dark transition flex items-center justify-center">
+                    <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+                </div>
+            </a>
 
-Use:
-- thin curved filigree lines
-- elegant flowing curves
-- spiral-like curls
-- symmetrical ornamental shapes
-- small circular motifs
-- delicate geometric stars
-- subtle crystal-like shapes
-- soft floral/elemental silhouettes
-- thin decorative borders
-- faint celestial patterns
-- elegant pointed shapes
-- very subtle arc patterns
+            <!-- MOBILE LEGENDS GAMING CARD -->
+            <div class="glass-panel rounded-2xl p-5 border border-softblue/35 relative overflow-hidden my-1">
+                <div class="flex items-center justify-between mb-4">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-xl bg-softblue text-white flex items-center justify-center shadow-sm">
+                            <i data-lucide="gamepad-2" class="w-5 h-5"></i>
+                        </div>
+                        <div>
+                            <span class="text-[10px] font-serif uppercase tracking-widest text-softblue-dark block">Mobile Legends</span>
+                            <h3 class="text-sm font-bold text-charcoal">Jayeon</h3>
+                        </div>
+                    </div>
+                    <span class="text-xs font-mono font-semibold text-charcoal-muted bg-cream-dark/50 px-3 py-1 rounded-md border border-softblue/30">
+                        ID: 203652127
+                    </span>
+                </div>
+                
+                <button 
+                    onclick="copyMlId('203652127')" 
+                    class="w-full py-2.5 px-4 bg-softblue hover:bg-softblue-hover text-white font-medium text-xs rounded-xl flex items-center justify-center gap-2 transition duration-300 shadow-sm active:scale-98"
+                >
+                    <i data-lucide="copy" class="w-3.5 h-3.5"></i>
+                    <span>Copy MLBB ID</span>
+                </button>
+            </div>
 
-The ornaments should feel like they belong to a sophisticated fantasy game world.
+            <!-- APPLE MUSIC FEATURED EMBED -->
+            <div class="glass-panel rounded-2xl p-5 flex flex-col gap-3.5 relative overflow-hidden">
+                <div class="flex items-center justify-between">
+                    <div class="flex items-center gap-2">
+                        <span class="w-2 h-2 rounded-full bg-softblue-dark animate-pulse"></span>
+                        <span class="text-xs font-serif italic text-charcoal tracking-wide">Currently Playing / Playlist</span>
+                    </div>
+                    <span class="text-[10px] font-semibold text-softblue-dark bg-softblue/20 px-2.5 py-0.5 rounded-full border border-softblue/30">Apple Music</span>
+                </div>
 
-Think:
-"ancient magical architecture + celestial ornament + elegant game UI"
+                <div class="rounded-xl overflow-hidden border border-softblue/30 bg-black/5">
+                    <iframe allow="autoplay *; encrypted-media *; fullscreen *; clipboard-write" frameborder="0" height="175" style="width:100%;max-width:660px;overflow:hidden;border-radius:10px;" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-storage-access-by-user-activation allow-top-navigation-by-user-activation" src="https://embed.music.apple.com/id/playlist/pl.u-yZyVEyZtZLo4y49"></iframe>
+                </div>
+            </div>
 
-NOT:
-"Disney"
-NOT:
-"cute kawaii"
-NOT:
-"wedding invitation"
-NOT:
-"heavy gothic"
-NOT:
-"overly decorative"
+        </section>
 
-==================================================
-ORNAMENT PLACEMENT
-==================================================
+        <!-- AESTHETIC QUOTE -->
+        <section class="w-full text-center py-2">
+            <p class="text-xs font-serif italic text-charcoal-muted leading-relaxed">
+                "Enjoying the music, gaming, and aesthetic simple things in life."
+            </p>
+        </section>
 
-Keep the center of the page relatively clean.
+    </main>
 
-Place most ornaments:
-- along the far left edge
-- along the far right edge
-- near the top corners
-- near the bottom corners
-- subtly behind the main content
-- around large empty background areas
+    <!-- FOOTER -->
+    <footer class="w-full max-w-lg mx-auto text-center z-10 pt-2 pb-4">
+        <p class="text-[11px] text-charcoal-light flex items-center justify-center gap-1 font-normal tracking-wide">
+            Designed for <span class="font-semibold text-charcoal">AlwalluL</span> ✦ 2026
+        </p>
+    </footer>
 
-Use symmetrical compositions where appropriate.
+    <!-- TOAST NOTIFICATION -->
+    <div id="toast" class="toast-notification fixed bottom-6 left-1/2 -translate-x-1/2 z-50 glass-panel bg-charcoal text-cream px-5 py-3 rounded-full shadow-xl flex items-center gap-2.5 text-xs font-medium border border-softblue/30">
+        <i data-lucide="check-circle-2" class="w-4 h-4 text-softblue"></i>
+        <span id="toast-message">Mobile Legends ID copied successfully!</span>
+    </div>
 
-The ornaments must stay BEHIND all existing website content.
+    <!-- MOBILE LEGENDS MODAL -->
+    <div id="ml-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-charcoal/40 backdrop-blur-sm opacity-0 pointer-events-none transition duration-300">
+        <div class="glass-panel bg-cream-light max-w-xs w-full rounded-3xl p-6 text-center border border-softblue/30 flex flex-col items-center gap-4 shadow-2xl transform scale-95 transition duration-300" id="ml-modal-content">
+            <div class="w-14 h-14 rounded-2xl bg-softblue text-white flex items-center justify-center">
+                <i data-lucide="gamepad-2" class="w-7 h-7"></i>
+            </div>
+            <div>
+                <h3 class="text-lg font-serif font-bold text-charcoal">Mobile Legends Profile</h3>
+                <p class="text-xs text-charcoal-muted mt-0.5">Add me to play together!</p>
+            </div>
+            
+            <div class="w-full bg-cream-dark/40 p-3.5 rounded-xl border border-softblue/30 text-left">
+                <div class="text-[10px] text-charcoal-light uppercase font-semibold tracking-wider">Username</div>
+                <div class="text-sm font-bold text-charcoal mb-2">Jayeon</div>
+                <div class="text-[10px] text-charcoal-light uppercase font-semibold tracking-wider">User ID</div>
+                <div class="text-sm font-mono font-bold text-charcoal">203652127</div>
+            </div>
 
-They must NEVER overlap or make existing:
-- text
-- profile image
-- buttons
-- cards
-- icons
+            <div class="flex gap-2 w-full">
+                <button onclick="copyMlId('203652127')" class="flex-1 py-2.5 bg-softblue hover:bg-softblue-hover text-white font-medium text-xs rounded-xl flex items-center justify-center gap-1.5 transition">
+                    <i data-lucide="copy" class="w-3.5 h-3.5"></i> Copy ID
+                </button>
+                <button onclick="closeMlModal()" class="px-4 py-2.5 bg-cream-dark hover:bg-cream-dark/80 text-charcoal font-medium text-xs rounded-xl transition">
+                    Close
+                </button>
+            </div>
+        </div>
+    </div>
 
-hard to read.
+    <script>
+        lucide.createIcons();
 
-==================================================
-FANTASY ATMOSPHERE
-==================================================
+        function copyMlId(idText) {
+            const el = document.createElement('textarea');
+            el.value = idText;
+            document.body.appendChild(el);
+            el.select();
+            document.execCommand('copy');
+            document.body.removeChild(el);
 
-Add extremely subtle visual depth:
+            showToast("Copied MLBB ID: " + idText);
+        }
 
-- soft radial glow
-- faint magical light
-- very subtle translucent geometric patterns
-- soft layered gradients
-- faint circular ornamental structures
-- extremely subtle particles/dots
+        function showToast(msg) {
+            const toast = document.getElementById('toast');
+            const toastMsg = document.getElementById('toast-message');
+            
+            toastMsg.innerText = msg;
+            toast.classList.add('show');
 
-Everything should have LOW opacity.
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 2500);
+        }
 
-The effect should be noticeable when looking at the whole website, but should not immediately distract from the content.
+        function openMlModal() {
+            const modal = document.getElementById('ml-modal');
+            const content = document.getElementById('ml-modal-content');
+            modal.classList.remove('opacity-0', 'pointer-events-none');
+            content.classList.remove('scale-95');
+            content.classList.add('scale-100');
+        }
 
-The final impression should be:
+        function closeMlModal() {
+            const modal = document.getElementById('ml-modal');
+            const content = document.getElementById('ml-modal-content');
+            modal.classList.add('opacity-0', 'pointer-events-none');
+            content.classList.remove('scale-100');
+            content.classList.add('scale-95');
+        }
 
-"AlwalluL is a personal music + gaming space inside an elegant fantasy world."
-
-==================================================
-VERY IMPORTANT
-==================================================
-
-Do NOT add:
-- characters
-- weapons
-- monsters
-- Genshin characters
-- game logos
-- large symbols
-- large butterflies
-- large stars
-- random illustrations
-- excessive particles
-- excessive glow
-- neon effects
-- complicated UI
-- new cards
-- new buttons
-- new text
-
-Do NOT change the existing design.
-
-ONLY:
-1. Remove the recently added butterfly/star decorations.
-2. Replace the background atmosphere.
-3. Add subtle fantasy ornamental background elements.
-
-Everything else MUST remain EXACTLY THE SAME.
-
-Do not rewrite unnecessary parts of the HTML/CSS.
-Modify only the minimum CSS/background/decorative elements required.
+        document.getElementById('ml-modal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeMlModal();
+            }
+        });
+    </script>
+</body>
+</html>
