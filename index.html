@@ -68,9 +68,9 @@
             background: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
         }
 
-        /* Glass Panel - Transparansi disesuaikan menjadi 0.70 */
+        /* Glass Panel - Transparansi disesuaikan menjadi 0.58 */
         .glass-panel {
-            background: rgba(245, 239, 225, 0.70);
+            background: rgba(245, 239, 225, 0.58);
             backdrop-filter: blur(16px);
             -webkit-backdrop-filter: blur(16px);
             border: 1px solid rgba(174, 196, 212, 0.35);
@@ -81,9 +81,10 @@
             transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
+        /* Glass Panel Hover - Transparansi disesuaikan menjadi 0.72 */
         .glass-panel-hover:hover {
             transform: translateY(-3px);
-            background: rgba(250, 247, 240, 0.90);
+            background: rgba(250, 247, 240, 0.72);
             border-color: rgba(174, 196, 212, 0.7);
             box-shadow: 0 16px 36px -12px rgba(174, 196, 212, 0.25);
         }
@@ -112,8 +113,8 @@
 
     <div class="noise-overlay"></div>
 
-    <!-- FONTAINE / FURINA HYDRO ELEGANT FANTASY BACKGROUND (-Z-10) -->
-    <div class="fixed inset-0 pointer-events-none -z-10 flex flex-col justify-between items-center overflow-hidden opacity-45 select-none">
+    <!-- FONTAINE / FURINA HYDRO ELEGANT FANTASY BACKGROUND (-Z-10, OPACITY 55%) -->
+    <div class="fixed inset-0 pointer-events-none -z-10 flex flex-col justify-between items-center overflow-hidden opacity-55 select-none">
         
         <!-- Elegant Border Frame Around Edges -->
         <div class="absolute inset-3 border border-[#AEC4D4]/30 rounded-[32px] pointer-events-none"></div>
