@@ -20,20 +20,20 @@
                 extend: {
                     colors: {
                         cream: {
-                            DEFAULT: '#F7F1DE',
-                            dark: '#EAE3CE',
-                            light: '#FAF7EE',
+                            DEFAULT: '#F5EFE1',
+                            dark: '#EAE1CE',
+                            light: '#FAF7F0',
                         },
-                        maroon: {
-                            DEFAULT: '#4E220F',
-                            hover: '#5C2413',
-                            light: '#8C4D30',
-                            soft: 'rgba(78, 34, 15, 0.08)',
+                        softblue: {
+                            DEFAULT: '#AEC4D4',
+                            hover: '#98B3C7',
+                            dark: '#7A9CB5',
+                            soft: 'rgba(174, 196, 212, 0.12)',
                         },
                         charcoal: {
-                            DEFAULT: '#1E232A',
-                            muted: '#4A525D',
-                            light: '#828C98',
+                            DEFAULT: '#2C3539',
+                            muted: '#5A656B',
+                            light: '#8A979E',
                         }
                     },
                     fontFamily: {
@@ -47,11 +47,11 @@
 
     <style>
         body {
-            background-color: #FAF7EE;
-            color: #1E232A;
+            background-color: #F5EFE1;
+            color: #2C3539;
             font-family: 'Plus Jakarta Sans', sans-serif;
             overflow-x: hidden;
-            background-image: radial-gradient(#4E220F 0.3px, transparent 0.3px);
+            background-image: radial-gradient(#AEC4D4 0.4px, transparent 0.4px);
             background-size: 28px 28px;
             background-position: 0 0;
             background-attachment: fixed;
@@ -69,11 +69,11 @@
         }
 
         .glass-panel {
-            background: rgba(247, 241, 222, 0.75);
+            background: rgba(245, 239, 225, 0.85);
             backdrop-filter: blur(16px);
             -webkit-backdrop-filter: blur(16px);
-            border: 1px solid rgba(78, 34, 15, 0.15);
-            box-shadow: 0 10px 30px -10px rgba(78, 34, 15, 0.04);
+            border: 1px solid rgba(174, 196, 212, 0.35);
+            box-shadow: 0 10px 30px -10px rgba(174, 196, 212, 0.15);
         }
 
         .glass-panel-hover {
@@ -82,9 +82,9 @@
 
         .glass-panel-hover:hover {
             transform: translateY(-3px);
-            background: rgba(250, 247, 238, 0.95);
-            border-color: rgba(78, 34, 15, 0.35);
-            box-shadow: 0 16px 36px -12px rgba(78, 34, 15, 0.08);
+            background: rgba(250, 247, 240, 0.95);
+            border-color: rgba(174, 196, 212, 0.7);
+            box-shadow: 0 16px 36px -12px rgba(174, 196, 212, 0.25);
         }
 
         .toast-notification {
@@ -107,13 +107,13 @@
         }
     </style>
 </head>
-<body class="min-h-screen flex flex-col items-center justify-between p-4 md:p-10 relative selection:bg-maroon selection:text-cream">
+<body class="min-h-screen flex flex-col items-center justify-between p-4 md:p-10 relative selection:bg-softblue selection:text-white">
 
     <div class="noise-overlay"></div>
 
     <!-- Soft Ambient Color Blobs -->
-    <div class="fixed top-12 left-10 w-96 h-96 bg-maroon-soft rounded-full blur-3xl pointer-events-none -z-10 animate-float"></div>
-    <div class="fixed bottom-20 right-10 w-80 h-80 bg-cream-dark/50 rounded-full blur-3xl pointer-events-none -z-10"></div>
+    <div class="fixed top-12 left-10 w-96 h-96 bg-softblue-soft rounded-full blur-3xl pointer-events-none -z-10 animate-float"></div>
+    <div class="fixed bottom-20 right-10 w-80 h-80 bg-cream-dark/60 rounded-full blur-3xl pointer-events-none -z-10"></div>
 
     <main class="w-full max-w-lg mx-auto z-10 flex flex-col items-center gap-7 my-auto pt-4 pb-12">
 
@@ -121,13 +121,13 @@
         <header class="flex flex-col items-center text-center w-full glass-panel rounded-3xl p-8 relative overflow-hidden">
             
             <!-- Minimal Accents -->
-            <div class="absolute top-4 left-5 text-maroon/30 text-[11px] font-serif tracking-widest">✦ 01</div>
-            <div class="absolute top-4 right-5 text-maroon/30 text-[11px] font-serif tracking-widest">FR / JP</div>
+            <div class="absolute top-4 left-5 text-softblue-dark/50 text-[11px] font-serif tracking-widest">✦ 01</div>
+            <div class="absolute top-4 right-5 text-softblue-dark/50 text-[11px] font-serif tracking-widest">FR / JP</div>
 
             <!-- Profile Picture Container -->
             <div class="relative mb-5 mt-2">
-                <div class="absolute -inset-2 rounded-full border border-maroon/20 scale-105"></div>
-                <div class="absolute -inset-4 rounded-full border border-dashed border-maroon/10 animate-float"></div>
+                <div class="absolute -inset-2 rounded-full border border-softblue/40 scale-105"></div>
+                <div class="absolute -inset-4 rounded-full border border-dashed border-softblue/25 animate-float"></div>
 
                 <div class="relative w-28 h-28 md:w-32 md:h-32 rounded-full p-1.5 bg-cream shadow-md overflow-hidden flex items-center justify-center border border-cream-dark">
                     <img 
@@ -138,14 +138,14 @@
                     >
                 </div>
 
-                <div class="absolute bottom-1 right-1 bg-cream p-1 rounded-full border border-maroon/20 shadow-sm" title="Active">
-                    <span class="block w-2.5 h-2.5 bg-maroon rounded-full"></span>
+                <div class="absolute bottom-1 right-1 bg-cream p-1 rounded-full border border-softblue/40 shadow-sm" title="Active">
+                    <span class="block w-2.5 h-2.5 bg-softblue-dark rounded-full"></span>
                 </div>
             </div>
 
             <!-- Profile Info -->
             <div class="flex items-center gap-2 mb-1">
-                <span class="text-[11px] font-serif italic text-maroon tracking-widest uppercase">PORTFOLIO & LINKS</span>
+                <span class="text-[11px] font-serif italic text-softblue-dark tracking-widest uppercase">PORTFOLIO & LINKS</span>
             </div>
             
             <h1 class="text-3xl md:text-4xl font-serif font-semibold tracking-tight text-charcoal">
@@ -157,11 +157,11 @@
             </p>
 
             <!-- 4 CIRCULAR SOCIAL BUTTONS WITH EXACT BRAND LOGOS -->
-            <div class="flex items-center justify-center gap-3 w-full mt-6 pt-5 border-t border-maroon/15">
+            <div class="flex items-center justify-center gap-3 w-full mt-6 pt-5 border-t border-softblue/30">
                 
                 <!-- 1. INSTAGRAM BRAND ICON -->
                 <a href="https://instagram.com/_alwallul29j" target="_blank" rel="noopener noreferrer" 
-                   class="w-10 h-10 rounded-full bg-cream border border-maroon/20 text-maroon hover:bg-maroon hover:text-cream hover:border-maroon flex items-center justify-center transition-all duration-300 shadow-sm group" title="Instagram">
+                   class="w-10 h-10 rounded-full bg-cream border border-softblue/40 text-charcoal hover:bg-softblue hover:text-white hover:border-softblue flex items-center justify-center transition-all duration-300 shadow-sm group" title="Instagram">
                     <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24">
                         <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
                     </svg>
@@ -169,7 +169,7 @@
 
                 <!-- 2. TIKTOK BRAND ICON -->
                 <a href="https://tiktok.com/@jayeon290" target="_blank" rel="noopener noreferrer" 
-                   class="w-10 h-10 rounded-full bg-cream border border-maroon/20 text-maroon hover:bg-maroon hover:text-cream hover:border-maroon flex items-center justify-center transition-all duration-300 shadow-sm group" title="TikTok">
+                   class="w-10 h-10 rounded-full bg-cream border border-softblue/40 text-charcoal hover:bg-softblue hover:text-white hover:border-softblue flex items-center justify-center transition-all duration-300 shadow-sm group" title="TikTok">
                     <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24">
                         <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64c.29 0 .56.04.82.11V9.4a6.33 6.33 0 0 0-1-.08A6.34 6.34 0 0 0 3 15.66a6.34 6.34 0 0 0 10.86 4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.02z"/>
                     </svg>
@@ -177,7 +177,7 @@
 
                 <!-- 3. APPLE MUSIC BRAND ICON -->
                 <a href="https://music.apple.com/id/playlist/pl.u-yZyVEyZtZLo4y49" target="_blank" rel="noopener noreferrer" 
-                   class="w-10 h-10 rounded-full bg-cream border border-maroon/20 text-maroon hover:bg-maroon hover:text-cream hover:border-maroon flex items-center justify-center transition-all duration-300 shadow-sm group" title="Apple Music">
+                   class="w-10 h-10 rounded-full bg-cream border border-softblue/40 text-charcoal hover:bg-softblue hover:text-white hover:border-softblue flex items-center justify-center transition-all duration-300 shadow-sm group" title="Apple Music">
                     <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24">
                         <path d="M23.997 6.17a3.01 3.01 0 0 0-2.122-2.12C20.005 3.5 12 3.5 12 3.5s-8.005 0-9.875.55A3.01 3.01 0 0 0 .003 6.17 31.5 31.5 0 0 0 0 12c0 1.944.003 3.888.003 5.83a3.01 3.01 0 0 0 2.122 2.12c1.87.55 9.875.55 9.875.55s8.005 0 9.875-.55a3.01 3.01 0 0 0 2.122-2.12c0-1.942.003-3.886.003-5.83 0-1.944-.003-3.888-.003-5.83zm-11.997 10.5a4.67 4.67 0 1 1 0-9.34 4.67 4.67 0 0 1 0 9.34zm0-7.34a2.67 2.67 0 1 0 0 5.34 2.67 2.67 0 0 0 0-5.34z"/>
                     </svg>
@@ -185,7 +185,7 @@
 
                 <!-- 4. GAMING CONTROLLER (Lucide Gamepad-2) -->
                 <button onclick="openMlModal()" 
-                   class="w-10 h-10 rounded-full bg-cream border border-maroon/20 text-maroon hover:bg-maroon hover:text-cream hover:border-maroon flex items-center justify-center transition-all duration-300 shadow-sm" title="Mobile Legends ID">
+                   class="w-10 h-10 rounded-full bg-cream border border-softblue/40 text-charcoal hover:bg-softblue hover:text-white hover:border-softblue flex items-center justify-center transition-all duration-300 shadow-sm" title="Mobile Legends ID">
                     <i data-lucide="gamepad-2" class="w-4 h-4"></i>
                 </button>
             </div>
@@ -195,25 +195,25 @@
         <section class="w-full flex flex-col gap-3.5">
             
             <div class="flex items-center justify-between px-2">
-                <span class="text-[11px] font-serif italic text-maroon uppercase tracking-widest">✦ DIRECT LINKS</span>
-                <div class="h-[1px] flex-1 bg-maroon/15 ml-4"></div>
+                <span class="text-[11px] font-serif italic text-softblue-dark uppercase tracking-widest">✦ DIRECT LINKS</span>
+                <div class="h-[1px] flex-1 bg-softblue/30 ml-4"></div>
             </div>
 
-            <!-- Link Item 1: Instagram (WITH INSTAGRAM BRAND LOGO INSIDE SQUARE ICON) -->
+            <!-- Link Item 1: Instagram -->
             <a href="https://instagram.com/_alwallul29j" target="_blank" rel="noopener noreferrer" 
                class="glass-panel glass-panel-hover rounded-2xl p-4 flex items-center justify-between group cursor-pointer">
                 <div class="flex items-center gap-4">
-                    <div class="w-11 h-11 rounded-xl bg-cream-dark/60 text-maroon flex items-center justify-center border border-maroon/15 group-hover:bg-maroon group-hover:text-cream transition duration-300">
+                    <div class="w-11 h-11 rounded-xl bg-cream-dark/60 text-charcoal flex items-center justify-center border border-softblue/30 group-hover:bg-softblue group-hover:text-white transition duration-300">
                         <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
                             <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
                         </svg>
                     </div>
                     <div class="text-left">
-                        <div class="text-[10px] font-semibold tracking-widest uppercase text-maroon">Social Media</div>
+                        <div class="text-[10px] font-semibold tracking-widest uppercase text-softblue-dark">Social Media</div>
                         <div class="text-sm font-semibold text-charcoal">Instagram <span class="text-xs text-charcoal-muted font-normal">(@_alwallul29j)</span></div>
                     </div>
                 </div>
-                <div class="w-7 h-7 rounded-full text-charcoal-light group-hover:text-maroon transition flex items-center justify-center">
+                <div class="w-7 h-7 rounded-full text-charcoal-light group-hover:text-softblue-dark transition flex items-center justify-center">
                     <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
                 </div>
             </a>
@@ -222,15 +222,15 @@
             <a href="https://tiktok.com/@jayeon290" target="_blank" rel="noopener noreferrer" 
                class="glass-panel glass-panel-hover rounded-2xl p-4 flex items-center justify-between group cursor-pointer">
                 <div class="flex items-center gap-4">
-                    <div class="w-11 h-11 rounded-xl bg-cream-dark/60 text-maroon flex items-center justify-center border border-maroon/15 group-hover:bg-maroon group-hover:text-cream transition duration-300">
+                    <div class="w-11 h-11 rounded-xl bg-cream-dark/60 text-charcoal flex items-center justify-center border border-softblue/30 group-hover:bg-softblue group-hover:text-white transition duration-300">
                         <i data-lucide="music-2" class="w-5 h-5"></i>
                     </div>
                     <div class="text-left">
-                        <div class="text-[10px] font-semibold tracking-widest uppercase text-maroon">Shorts & Clips</div>
+                        <div class="text-[10px] font-semibold tracking-widest uppercase text-softblue-dark">Shorts & Clips</div>
                         <div class="text-sm font-semibold text-charcoal">TikTok <span class="text-xs text-charcoal-muted font-normal">(@jayeon290)</span></div>
                     </div>
                 </div>
-                <div class="w-7 h-7 rounded-full text-charcoal-light group-hover:text-maroon transition flex items-center justify-center">
+                <div class="w-7 h-7 rounded-full text-charcoal-light group-hover:text-softblue-dark transition flex items-center justify-center">
                     <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
                 </div>
             </a>
@@ -239,39 +239,39 @@
             <a href="https://music.apple.com/id/playlist/pl.u-yZyVEyZtZLo4y49" target="_blank" rel="noopener noreferrer" 
                class="glass-panel glass-panel-hover rounded-2xl p-4 flex items-center justify-between group cursor-pointer">
                 <div class="flex items-center gap-4">
-                    <div class="w-11 h-11 rounded-xl bg-cream-dark/60 text-maroon flex items-center justify-center border border-maroon/15 group-hover:bg-maroon group-hover:text-cream transition duration-300">
+                    <div class="w-11 h-11 rounded-xl bg-cream-dark/60 text-charcoal flex items-center justify-center border border-softblue/30 group-hover:bg-softblue group-hover:text-white transition duration-300">
                         <i data-lucide="disc" class="w-5 h-5"></i>
                     </div>
                     <div class="text-left">
-                        <div class="text-[10px] font-semibold tracking-widest uppercase text-maroon">Audio Space</div>
+                        <div class="text-[10px] font-semibold tracking-widest uppercase text-softblue-dark">Audio Space</div>
                         <div class="text-sm font-semibold text-charcoal">Apple Music Playlist 🎵</div>
                     </div>
                 </div>
-                <div class="w-7 h-7 rounded-full text-charcoal-light group-hover:text-maroon transition flex items-center justify-center">
+                <div class="w-7 h-7 rounded-full text-charcoal-light group-hover:text-softblue-dark transition flex items-center justify-center">
                     <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
                 </div>
             </a>
 
             <!-- MOBILE LEGENDS GAMING CARD -->
-            <div class="glass-panel rounded-2xl p-5 border border-maroon/20 relative overflow-hidden my-1">
+            <div class="glass-panel rounded-2xl p-5 border border-softblue/35 relative overflow-hidden my-1">
                 <div class="flex items-center justify-between mb-4">
                     <div class="flex items-center gap-3">
-                        <div class="w-10 h-10 rounded-xl bg-maroon text-cream flex items-center justify-center shadow-sm">
+                        <div class="w-10 h-10 rounded-xl bg-softblue text-white flex items-center justify-center shadow-sm">
                             <i data-lucide="gamepad-2" class="w-5 h-5"></i>
                         </div>
                         <div>
-                            <span class="text-[10px] font-serif uppercase tracking-widest text-maroon block">Mobile Legends</span>
+                            <span class="text-[10px] font-serif uppercase tracking-widest text-softblue-dark block">Mobile Legends</span>
                             <h3 class="text-sm font-bold text-charcoal">Jayeon</h3>
                         </div>
                     </div>
-                    <span class="text-xs font-mono font-semibold text-charcoal-muted bg-cream-dark/50 px-3 py-1 rounded-md border border-maroon/15">
+                    <span class="text-xs font-mono font-semibold text-charcoal-muted bg-cream-dark/50 px-3 py-1 rounded-md border border-softblue/30">
                         ID: 203652127
                     </span>
                 </div>
                 
                 <button 
                     onclick="copyMlId('203652127')" 
-                    class="w-full py-2.5 px-4 bg-maroon hover:bg-maroon-hover text-cream font-medium text-xs rounded-xl flex items-center justify-center gap-2 transition duration-300 shadow-sm active:scale-98"
+                    class="w-full py-2.5 px-4 bg-softblue hover:bg-softblue-hover text-white font-medium text-xs rounded-xl flex items-center justify-center gap-2 transition duration-300 shadow-sm active:scale-98"
                 >
                     <i data-lucide="copy" class="w-3.5 h-3.5"></i>
                     <span>Copy MLBB ID</span>
@@ -282,13 +282,13 @@
             <div class="glass-panel rounded-2xl p-5 flex flex-col gap-3.5 relative overflow-hidden">
                 <div class="flex items-center justify-between">
                     <div class="flex items-center gap-2">
-                        <span class="w-2 h-2 rounded-full bg-maroon animate-pulse"></span>
+                        <span class="w-2 h-2 rounded-full bg-softblue-dark animate-pulse"></span>
                         <span class="text-xs font-serif italic text-charcoal tracking-wide">Currently Playing / Playlist</span>
                     </div>
-                    <span class="text-[10px] font-semibold text-maroon bg-maroon/10 px-2.5 py-0.5 rounded-full border border-maroon/20">Apple Music</span>
+                    <span class="text-[10px] font-semibold text-softblue-dark bg-softblue/20 px-2.5 py-0.5 rounded-full border border-softblue/30">Apple Music</span>
                 </div>
 
-                <div class="rounded-xl overflow-hidden border border-maroon/15 bg-black/5">
+                <div class="rounded-xl overflow-hidden border border-softblue/30 bg-black/5">
                     <iframe allow="autoplay *; encrypted-media *; fullscreen *; clipboard-write" frameborder="0" height="175" style="width:100%;max-width:660px;overflow:hidden;border-radius:10px;" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-storage-access-by-user-activation allow-top-navigation-by-user-activation" src="https://embed.music.apple.com/id/playlist/pl.u-yZyVEyZtZLo4y49"></iframe>
                 </div>
             </div>
@@ -312,15 +312,15 @@
     </footer>
 
     <!-- TOAST NOTIFICATION -->
-    <div id="toast" class="toast-notification fixed bottom-6 left-1/2 -translate-x-1/2 z-50 glass-panel bg-maroon text-cream px-5 py-3 rounded-full shadow-xl flex items-center gap-2.5 text-xs font-medium border border-maroon/20">
-        <i data-lucide="check-circle-2" class="w-4 h-4 text-cream"></i>
+    <div id="toast" class="toast-notification fixed bottom-6 left-1/2 -translate-x-1/2 z-50 glass-panel bg-charcoal text-cream px-5 py-3 rounded-full shadow-xl flex items-center gap-2.5 text-xs font-medium border border-softblue/30">
+        <i data-lucide="check-circle-2" class="w-4 h-4 text-softblue"></i>
         <span id="toast-message">Mobile Legends ID copied successfully!</span>
     </div>
 
     <!-- MOBILE LEGENDS MODAL -->
     <div id="ml-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-charcoal/40 backdrop-blur-sm opacity-0 pointer-events-none transition duration-300">
-        <div class="glass-panel bg-cream-light max-w-xs w-full rounded-3xl p-6 text-center border border-maroon/20 flex flex-col items-center gap-4 shadow-2xl transform scale-95 transition duration-300" id="ml-modal-content">
-            <div class="w-14 h-14 rounded-2xl bg-maroon text-cream flex items-center justify-center">
+        <div class="glass-panel bg-cream-light max-w-xs w-full rounded-3xl p-6 text-center border border-softblue/30 flex flex-col items-center gap-4 shadow-2xl transform scale-95 transition duration-300" id="ml-modal-content">
+            <div class="w-14 h-14 rounded-2xl bg-softblue text-white flex items-center justify-center">
                 <i data-lucide="gamepad-2" class="w-7 h-7"></i>
             </div>
             <div>
@@ -328,7 +328,7 @@
                 <p class="text-xs text-charcoal-muted mt-0.5">Add me to play together!</p>
             </div>
             
-            <div class="w-full bg-cream-dark/40 p-3.5 rounded-xl border border-maroon/15 text-left">
+            <div class="w-full bg-cream-dark/40 p-3.5 rounded-xl border border-softblue/30 text-left">
                 <div class="text-[10px] text-charcoal-light uppercase font-semibold tracking-wider">Username</div>
                 <div class="text-sm font-bold text-charcoal mb-2">Jayeon</div>
                 <div class="text-[10px] text-charcoal-light uppercase font-semibold tracking-wider">User ID</div>
@@ -336,7 +336,7 @@
             </div>
 
             <div class="flex gap-2 w-full">
-                <button onclick="copyMlId('203652127')" class="flex-1 py-2.5 bg-maroon hover:bg-maroon-hover text-cream font-medium text-xs rounded-xl flex items-center justify-center gap-1.5 transition">
+                <button onclick="copyMlId('203652127')" class="flex-1 py-2.5 bg-softblue hover:bg-softblue-hover text-white font-medium text-xs rounded-xl flex items-center justify-center gap-1.5 transition">
                     <i data-lucide="copy" class="w-3.5 h-3.5"></i> Copy ID
                 </button>
                 <button onclick="closeMlModal()" class="px-4 py-2.5 bg-cream-dark hover:bg-cream-dark/80 text-charcoal font-medium text-xs rounded-xl transition">
